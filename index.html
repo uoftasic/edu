@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>UofT ASIC Education</title>
+  <meta name="description" content="UofT ASIC Team internal education hub" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,550;9..144,650&family=Source+Sans+3:wght@400;600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #f3f6f4;
+      --fg: #14201c;
+      --muted: #4d5c56;
+      --accent: #0b6e4f;
+      --accent-soft: #d7ebe2;
+      --rule: #c9d5cf;
+      --card: rgba(255, 255, 255, 0.72);
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: "Source Sans 3", "Segoe UI", sans-serif;
+      color: var(--fg);
+      line-height: 1.5;
+      background:
+        radial-gradient(900px 480px at 0% 0%, #cfe8dc 0%, transparent 55%),
+        radial-gradient(700px 420px at 100% 10%, #d9e3f0 0%, transparent 50%),
+        linear-gradient(180deg, #eef3f0 0%, var(--bg) 45%, #e7eee9 100%);
+    }
+    main {
+      max-width: 40rem;
+      margin: 0 auto;
+      padding: 4.5rem 1.5rem 3rem;
+    }
+    p.brand {
+      margin: 0 0 0.85rem;
+      font-size: 0.8rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      font-weight: 600;
+      color: var(--accent);
+    }
+    h1 {
+      margin: 0 0 1rem;
+      font-family: Fraunces, Georgia, serif;
+      font-size: clamp(2.1rem, 5vw, 2.75rem);
+      font-weight: 650;
+      line-height: 1.15;
+      letter-spacing: -0.02em;
+    }
+    .lede {
+      margin: 0 0 2.25rem;
+      color: var(--muted);
+      font-size: 1.08rem;
+      max-width: 34rem;
+    }
+    ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      background: var(--card);
+      border: 1px solid var(--rule);
+      backdrop-filter: blur(8px);
+    }
+    li + li { border-top: 1px solid var(--rule); }
+    a {
+      display: block;
+      padding: 1.1rem 1.15rem;
+      color: var(--fg);
+      text-decoration: none;
+      transition: background 160ms ease, color 160ms ease;
+    }
+    a:hover {
+      background: var(--accent-soft);
+      color: var(--accent);
+    }
+    a strong {
+      display: block;
+      font-size: 1.05rem;
+      font-weight: 600;
+    }
+    a span {
+      display: block;
+      margin-top: 0.3rem;
+      font-size: 0.92rem;
+      color: var(--muted);
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <p class="brand">UofT ASIC Team</p>
+    <h1>Education</h1>
+    <p class="lede">
+      Internal education materials for the ASIC Team. Course and lab sites
+      publish as GitHub Pages project sites under uoftasic.com.
+    </p>
+    <ul>
+      <li>
+        <a href="https://uoftasic.com/course-template/">
+          <strong>Course template</strong>
+          <span>Docsify starter for courses and labs — uoftasic.com/course-template</span>
+        </a>
+      </li>
+    </ul>
+  </main>
+</body>
+</html>

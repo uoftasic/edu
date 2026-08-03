@@ -1,0 +1,110 @@
+{
+  "workspace_url": "https://github.com/uoftasic/workspace",
+  "template_url": "https://uoftasic.com/course-template/",
+  "courses": [
+    {
+      "id": "ic101",
+      "title": "IC101 — Onboarding onto Tools",
+      "track": "Core",
+      "status": "live",
+      "prereqs": [],
+      "summary": "Set up the shared Docker workspace and SKY130 toolchain every later course builds on."
+    },
+    {
+      "id": "ad101",
+      "title": "AD101 — Signals",
+      "track": "Analog",
+      "status": "live",
+      "prereqs": ["ic101"],
+      "summary": "Waveforms, spectra, and Bode plots — a gentle primer before circuits."
+    },
+    {
+      "id": "ad102",
+      "title": "AD102 — Linear Circuits & Fabrication",
+      "track": "Analog",
+      "status": "planned",
+      "prereqs": ["ad101"],
+      "summary": "Linear analysis folded together with how passives are fabricated on-chip."
+    },
+    {
+      "id": "ad103",
+      "title": "AD103 — Nonlinear Circuits",
+      "track": "Analog",
+      "status": "planned",
+      "prereqs": ["ad102"],
+      "summary": "The diode and MOSFET in XSchem: regions of operation and key device parameters."
+    },
+    {
+      "id": "ad104",
+      "title": "AD104 — Layout",
+      "track": "Analog",
+      "status": "planned",
+      "prereqs": ["ad103"],
+      "summary": "Full-custom layout: stick diagrams, DRC/LVS-clean cells, PEX, and manual P&R."
+    },
+    {
+      "id": "ad201",
+      "title": "AD201 — Analog Signal Processing",
+      "track": "Analog",
+      "status": "planned",
+      "prereqs": ["ad104"],
+      "summary": "Stretch track: filters, amplifiers, and the OpAmp."
+    },
+    {
+      "id": "ad202",
+      "title": "AD202 — Mixed Signal",
+      "track": "Analog",
+      "status": "planned",
+      "prereqs": ["ad201"],
+      "summary": "Stretch track: ADCs, DACs, and the analog/digital interface."
+    },
+    {
+      "id": "dd101",
+      "title": "DD101 — Intro to Digital Logic",
+      "track": "Digital",
+      "status": "planned",
+      "prereqs": ["ic101"],
+      "summary": "Logic from first principles and lowering to gates."
+    },
+    {
+      "id": "dd102",
+      "title": "DD102 — Digital Logic & FPGAs",
+      "track": "Digital",
+      "status": "planned",
+      "prereqs": ["dd101"],
+      "summary": "RTL on FPGAs and SystemVerilog, culminating in a ripple adder."
+    },
+    {
+      "id": "dd103",
+      "title": "DD103 — RTL on FPGAs & ASICs",
+      "track": "Digital",
+      "status": "planned",
+      "prereqs": ["dd102"],
+      "summary": "SystemVerilog in depth and the open-source RTL-to-GDSII flow."
+    },
+    {
+      "id": "dd104",
+      "title": "DD104 — Pre-Silicon Verification",
+      "track": "Digital",
+      "status": "planned",
+      "prereqs": ["dd103"],
+      "summary": "Verification with open-source tools: testbench a buggy core and fix it."
+    },
+    {
+      "id": "dd201",
+      "title": "DD201 — HLS",
+      "track": "Digital",
+      "status": "planned",
+      "prereqs": ["dd103"],
+      "summary": "Stretch track: high-level synthesis languages."
+    },
+    {
+      "id": "dd202",
+      "title": "DD202 — Computer Architecture",
+      "track": "Digital",
+      "status": "planned",
+      "prereqs": ["dd103"],
+      "summary": "Stretch track: memory architecture and a simple computer."
+    }
+  ]
+}

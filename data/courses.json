@@ -38,7 +38,7 @@
       "id": "ad104",
       "title": "AD104 — Layout",
       "track": "Analog",
-      "status": "planned",
+      "status": "live",
       "prereqs": ["ad103"],
       "summary": "Full-custom layout: stick diagrams, DRC/LVS-clean cells, PEX, and manual P&R."
     },

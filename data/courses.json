@@ -22,7 +22,7 @@
       "id": "ad102",
       "title": "AD102 — Linear Circuits & Fabrication",
       "track": "Analog",
-      "status": "planned",
+      "status": "live",
       "prereqs": ["ad101"],
       "summary": "Linear analysis folded together with how passives are fabricated on-chip."
     },
@@ -30,7 +30,7 @@
       "id": "ad103",
       "title": "AD103 — Nonlinear Circuits",
       "track": "Analog",
-      "status": "planned",
+      "status": "live",
       "prereqs": ["ad102"],
       "summary": "The diode and MOSFET in XSchem: regions of operation and key device parameters."
     },
@@ -38,7 +38,7 @@
       "id": "ad104",
       "title": "AD104 — Layout",
       "track": "Analog",
-      "status": "planned",
+      "status": "live",
       "prereqs": ["ad103"],
       "summary": "Full-custom layout: stick diagrams, DRC/LVS-clean cells, PEX, and manual P&R."
     },
@@ -62,7 +62,7 @@
       "id": "dd101",
       "title": "DD101 — Intro to Digital Logic",
       "track": "Digital",
-      "status": "planned",
+      "status": "live",
       "prereqs": ["ic101"],
       "summary": "Logic from first principles and lowering to gates."
     },
@@ -70,7 +70,7 @@
       "id": "dd102",
       "title": "DD102 — Digital Logic & FPGAs",
       "track": "Digital",
-      "status": "planned",
+      "status": "live",
       "prereqs": ["dd101"],
       "summary": "RTL on FPGAs and SystemVerilog, culminating in a ripple adder."
     },
@@ -78,7 +78,7 @@
       "id": "dd103",
       "title": "DD103 — RTL on FPGAs & ASICs",
       "track": "Digital",
-      "status": "planned",
+      "status": "live",
       "prereqs": ["dd102"],
       "summary": "SystemVerilog in depth and the open-source RTL-to-GDSII flow."
     },
@@ -86,7 +86,7 @@
       "id": "dd104",
       "title": "DD104 — Pre-Silicon Verification",
       "track": "Digital",
-      "status": "planned",
+      "status": "live",
       "prereqs": ["dd103"],
       "summary": "Verification with open-source tools: testbench a buggy core and fix it."
     },

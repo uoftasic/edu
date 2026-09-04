@@ -1,312 +1,272 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>UofT ASIC Education</title>
-  <meta name="description" content="UofT ASIC Team internal education hub — courses, workspace, and roadmap" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,550;9..144,650&family=Source+Sans+3:wght@400;600&display=swap" rel="stylesheet" />
-  <style>
-    :root {
-      --bg: #f3f6f4;
-      --fg: #14201c;
-      --muted: #4d5c56;
-      --accent: #0b6e4f;
-      --accent-soft: #d7ebe2;
-      --rule: #c9d5cf;
-      --card: rgba(255, 255, 255, 0.72);
-    }
-    * { box-sizing: border-box; }
-    body {
-      margin: 0;
-      min-height: 100vh;
-      font-family: "Source Sans 3", "Segoe UI", sans-serif;
-      color: var(--fg);
-      line-height: 1.5;
-      background:
-        radial-gradient(900px 480px at 0% 0%, #cfe8dc 0%, transparent 55%),
-        radial-gradient(700px 420px at 100% 10%, #d9e3f0 0%, transparent 50%),
-        linear-gradient(180deg, #eef3f0 0%, var(--bg) 45%, #e7eee9 100%);
-    }
-    main {
-      max-width: 42rem;
-      margin: 0 auto;
-      padding: 4rem 1.5rem 3.5rem;
-    }
-    p.brand {
-      margin: 0 0 0.85rem;
-      font-size: 0.8rem;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      font-weight: 600;
-      color: var(--accent);
-      animation: rise 520ms ease both;
-    }
-    h1 {
-      margin: 0 0 1rem;
-      font-family: Fraunces, Georgia, serif;
-      font-size: clamp(2.1rem, 5vw, 2.75rem);
-      font-weight: 650;
-      line-height: 1.15;
-      letter-spacing: -0.02em;
-      animation: rise 560ms ease 40ms both;
-    }
-    .lede {
-      margin: 0 0 2rem;
-      color: var(--muted);
-      font-size: 1.08rem;
-      max-width: 34rem;
-      animation: rise 600ms ease 80ms both;
-    }
-    h2 {
-      margin: 2.4rem 0 0.85rem;
-      font-family: Fraunces, Georgia, serif;
-      font-size: 1.35rem;
-      font-weight: 650;
-      letter-spacing: -0.01em;
-    }
-    h3 {
-      margin: 0 0 0.55rem;
-      font-size: 0.78rem;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      font-weight: 600;
-      color: var(--accent);
-    }
-    .steps {
-      margin: 0;
-      padding: 0;
-      list-style: none;
-      background: var(--card);
-      border: 1px solid var(--rule);
-      backdrop-filter: blur(8px);
-      animation: rise 640ms ease 120ms both;
-    }
-    .steps li {
-      display: grid;
-      grid-template-columns: 2rem 1fr;
-      gap: 0.65rem;
-      padding: 0.95rem 1.1rem;
-      align-items: start;
-    }
-    .steps li + li { border-top: 1px solid var(--rule); }
-    .steps .n {
-      font-family: Fraunces, Georgia, serif;
-      font-weight: 650;
-      color: var(--accent);
-      line-height: 1.4;
-    }
-    .steps a {
-      color: var(--accent);
-      font-weight: 600;
-      text-decoration: none;
-      border-bottom: 1px solid transparent;
-      transition: border-color 160ms ease;
-    }
-    .steps a:hover { border-bottom-color: var(--accent); }
-    .catalog {
-      list-style: none;
-      margin: 0;
-      padding: 0;
-      background: var(--card);
-      border: 1px solid var(--rule);
-      backdrop-filter: blur(8px);
-      animation: rise 680ms ease 160ms both;
-    }
-    .catalog li + li { border-top: 1px solid var(--rule); }
-    .catalog a {
-      display: block;
-      padding: 1.05rem 1.15rem;
-      color: var(--fg);
-      text-decoration: none;
-      transition: background 160ms ease, color 160ms ease;
-    }
-    .catalog a:hover {
-      background: var(--accent-soft);
-      color: var(--accent);
-    }
-    .catalog a strong {
-      display: block;
-      font-size: 1.05rem;
-      font-weight: 600;
-    }
-    .catalog a span {
-      display: block;
-      margin-top: 0.3rem;
-      font-size: 0.92rem;
-      color: var(--muted);
-    }
-    .tracks {
-      display: grid;
-      gap: 1.25rem;
-      animation: rise 720ms ease 200ms both;
-    }
-    @media (min-width: 640px) {
-      .tracks { grid-template-columns: 1fr 1fr; }
-    }
-    .track {
-      background: var(--card);
-      border: 1px solid var(--rule);
-      padding: 1rem 1.1rem 1.05rem;
-      backdrop-filter: blur(8px);
-    }
-    ul.roadmap {
-      list-style: none;
-      margin: 0;
-      padding: 0;
-    }
-    ul.roadmap li {
-      padding: 0.55rem 0;
-      font-size: 0.95rem;
-      color: var(--fg);
-    }
-    ul.roadmap li + li { border-top: 1px solid var(--rule); }
-    ul.roadmap .id {
-      font-weight: 600;
-      color: var(--accent);
-      margin-right: 0.25rem;
-    }
-    ul.roadmap em {
-      display: block;
-      margin-top: 0.2rem;
-      font-style: normal;
-      font-size: 0.86rem;
-      color: var(--muted);
-    }
-    footer {
-      margin-top: 2.75rem;
-      padding-top: 1.25rem;
-      border-top: 1px solid var(--rule);
-      color: var(--muted);
-      font-size: 0.9rem;
-      animation: rise 760ms ease 240ms both;
-    }
-    footer a {
-      color: var(--accent);
-      font-weight: 600;
-      text-decoration: none;
-    }
-    footer a:hover { text-decoration: underline; }
-    @keyframes rise {
-      from { opacity: 0; transform: translateY(0.45rem); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-    @media (prefers-reduced-motion: reduce) {
-      * { animation: none !important; transition: none !important; }
-    }
-  </style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Education &mdash; UofT ASIC</title>
+<meta name="description" content="Self-paced courses that take you from no background to a chip design you hardened yourself, on the open-source tools the team uses.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..800&amp;family=IBM+Plex+Mono:wght@400;500&amp;family=Newsreader:ital,opsz,wght@0,6..72,400..700;1,6..72,400..700&amp;display=swap">
+<style>
+/* Tokens copied from uoftasic.com/assets/css/asic-theme.css - keep in sync. */
+:root{
+  --blue:#1E3765; --teal:#007FA3; --red:#DC4633; --purple:#6D247A; --yellow:#F1C500;
+  --paper:#FFFFFF; --paper-2:#F2F4F7;
+  --ink:#14171F; --ink-2:#4C5462; --ink-3:#828B9B;
+  --rule:#DDE2EA; --rule-2:#ECEFF4;
+  --sans:"Archivo",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  --serif:"Newsreader",Georgia,"Times New Roman",serif;
+  --mono:"IBM Plex Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
+  --shell:1100px; --gutter:24px;
+  /* Track accents, taken from the institutional secondaries. */
+  --analog:var(--purple); --digital:var(--teal); --gate:var(--yellow);
+}
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);
+  font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased}
+a{color:var(--blue)}
+:focus-visible{outline:2px solid var(--blue);outline-offset:2px}
+.shell{max-width:var(--shell);margin:0 auto;padding:0 var(--gutter) 88px}
+
+.masthead{border-bottom:1px solid var(--rule);background:var(--paper)}
+.masthead__inner{max-width:var(--shell);margin:0 auto;padding:16px var(--gutter);
+  display:flex;align-items:center;justify-content:space-between;gap:24px}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--ink);line-height:1}
+.mark{width:26px;height:26px;color:var(--blue);flex:none;display:block}
+.brand__name{font-weight:700;font-size:16px;letter-spacing:-.018em;white-space:nowrap}
+.nav{display:flex;align-items:center;gap:24px;font-size:14px;font-weight:500}
+.nav__link{display:inline-flex;align-items:center;padding:6px 0;line-height:1;
+  color:var(--ink-2);text-decoration:none}
+.nav__link:hover{color:var(--ink)}
+.nav__link.is-current{color:var(--blue);box-shadow:inset 0 -2px 0 0 var(--blue)}
+.nav__link--cta{background:var(--blue);color:var(--paper);padding:8px 15px;border-radius:2px}
+.nav__link--cta:hover{background:#16294c;color:var(--paper)}
+
+.hero{padding:64px 0 40px;border-bottom:1px solid var(--rule)}
+.hero__eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--blue);margin:0 0 16px}
+.hero h1{margin:0;font-size:clamp(38px,6vw,60px);line-height:1.03;font-weight:700;
+  letter-spacing:-.028em;max-width:15ch}
+.hero__lede{font-family:var(--serif);font-size:20px;line-height:1.55;color:var(--ink-2);
+  max-width:56ch;margin:20px 0 0}
+.hero__lede strong{color:var(--ink);font-weight:600}
+
+.gate{margin:40px 0 0;border:1px solid var(--rule);border-left:4px solid var(--gate);
+  border-radius:2px;background:var(--paper-2);display:grid;
+  grid-template-columns:auto 1fr auto;gap:0 24px;align-items:center;padding:22px 26px}
+.gate__badge{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--ink-2);align-self:stretch;display:flex;align-items:center;
+  border-right:1px solid var(--rule);padding-right:22px;margin:0}
+.gate__body h2{margin:0 0 5px;font-size:22px;font-weight:700;letter-spacing:-.02em}
+.gate__code{font-family:var(--mono);font-size:16px;font-weight:500;
+  color:var(--blue);margin-right:10px;letter-spacing:0}
+.gate__body p{margin:0;color:var(--ink-2);font-size:15.5px;max-width:62ch}
+.gate__cta{background:var(--blue);color:var(--paper);text-decoration:none;padding:11px 20px;
+  border-radius:2px;font-weight:600;font-size:15px;white-space:nowrap}
+.gate__cta:hover{background:#16294c}
+
+.fork-note{display:flex;align-items:center;gap:16px;margin:0;padding:30px 0 10px;
+  color:var(--ink-3);font-family:var(--mono);font-size:11.5px;letter-spacing:.14em;
+  text-transform:uppercase}
+.fork-note::before,.fork-note::after{content:"";height:1px;background:var(--rule);flex:1}
+
+.tracks{display:grid;grid-template-columns:1fr 1fr;gap:40px;margin:8px 0 0;align-items:start}
+.track__head{padding:0 0 18px;border-bottom:2px solid currentColor}
+.track--analog .track__head{color:var(--analog)}
+.track--digital .track__head{color:var(--digital)}
+.track__name{margin:0;font-size:27px;font-weight:700;letter-spacing:-.02em;color:inherit}
+.track__blurb{margin:7px 0 0;font-size:15px;color:var(--ink-2);max-width:44ch}
+.track__count{margin:12px 0 0;font-family:var(--mono);font-size:11.5px;letter-spacing:.13em;
+  text-transform:uppercase;color:var(--ink-3)}
+.track__n{color:var(--ink);font-weight:500}
+
+.ladder{list-style:none;margin:0;padding:0}
+.ladder__level{position:relative;padding-top:24px}
+.ladder__level::before{content:"";position:absolute;top:0;left:26px;width:2px;height:24px}
+.track--analog .ladder__level::before{background:#c9b4cf}
+.track--digital .ladder__level::before{background:#a8cddb}
+.ladder__row{list-style:none;margin:0;padding:0;display:grid;gap:10px}
+
+/* A branch: several courses off the same prerequisite, none before another.
+   The bracket binds them; the caption says what the bracket means. */
+.ladder__fork{margin:0 0 10px 26px;padding:0 0 0 16px;font-family:var(--mono);font-size:11px;
+  letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3)}
+.ladder__level--fork > .ladder__row{position:relative;padding-left:16px;margin-left:26px;
+  border-left:2px solid var(--rule)}
+.track--analog .ladder__level--fork > .ladder__row{border-left-color:#c9b4cf}
+.track--digital .ladder__level--fork > .ladder__row{border-left-color:#a8cddb}
+.ladder__level--fork > .ladder__row > .step::before{content:"";position:absolute;left:0;
+  width:16px;height:2px;background:inherit}
+.ladder__level--fork .step{position:relative}
+.ladder__level--fork .step::before{content:"";position:absolute;left:-16px;top:26px;
+  width:16px;height:2px;background:var(--rule)}
+.track--analog .ladder__level--fork .step::before{background:#c9b4cf}
+.track--digital .ladder__level--fork .step::before{background:#a8cddb}
+
+.step__link{display:grid;grid-template-columns:auto 1fr auto;gap:4px 14px;
+  align-items:baseline;text-decoration:none;color:inherit;border:1px solid var(--rule);
+  border-radius:2px;padding:15px 17px;background:var(--paper)}
+a.step__link:hover{border-color:var(--blue);background:var(--paper-2)}
+.step__code{font-family:var(--mono);font-size:13px;font-weight:500;grid-row:1;color:var(--blue)}
+.track--analog .step__code{color:var(--analog)}
+.track--digital .step__code{color:var(--digital)}
+.step__name{grid-row:1;font-weight:600;font-size:17px;letter-spacing:-.012em;color:var(--ink)}
+.step__summary{grid-row:2;grid-column:2;font-size:14.5px;color:var(--ink-2);line-height:1.5}
+.step__go{grid-row:1;grid-column:3;color:var(--ink-3);font-size:17px}
+a.step__link:hover .step__go{color:var(--blue)}
+.step__tag{grid-row:1;grid-column:3;font-family:var(--mono);font-size:10px;letter-spacing:.12em;
+  text-transform:uppercase;color:var(--ink-3);border:1px solid var(--rule);border-radius:2px;
+  padding:3px 7px;align-self:center}
+.step--planned .step__link{background:transparent;border-style:dashed}
+.step--planned .step__name{color:var(--ink-2)}
+.step--planned .step__code{opacity:.7}
+
+.tools{margin:64px 0 0;border-top:1px solid var(--rule);padding:34px 0 0;
+  display:grid;grid-template-columns:1fr auto;gap:26px;align-items:center}
+.tools h2{margin:0 0 7px;font-size:20px;font-weight:700;letter-spacing:-.018em}
+.tools p{margin:0;color:var(--ink-2);font-size:15.5px;max-width:62ch}
+.tools__links{display:flex;gap:10px;flex-wrap:wrap}
+.btn{border:1px solid var(--rule);border-radius:2px;padding:10px 16px;text-decoration:none;
+  font-size:14.5px;font-weight:500;color:var(--ink);white-space:nowrap;background:var(--paper)}
+.btn:hover{border-color:var(--blue);color:var(--blue)}
+
+.footer{border-top:1px solid var(--rule);background:var(--paper-2)}
+.footer__inner{max-width:var(--shell);margin:0 auto;padding:28px var(--gutter);
+  display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap}
+.footer__brand{display:flex;align-items:center;gap:10px;color:var(--ink-2);font-size:14px}
+.footer__brand .mark{width:20px;height:20px;color:var(--ink-3)}
+.footer__note{color:var(--ink-3);font-size:13.5px;margin:0}
+.footer__note code{font-family:var(--mono);font-size:12.5px}
+
+@media (max-width:860px){
+  .tracks{grid-template-columns:1fr;gap:44px}
+  .gate{grid-template-columns:1fr;gap:14px;padding:20px}
+  .gate__badge{border-right:0;border-bottom:1px solid var(--rule);padding:0 0 12px}
+  .tools{grid-template-columns:1fr}
+  .nav{gap:14px;font-size:13px}
+}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
 </head>
 <body>
-  <main>
-    <p class="brand">UofT ASIC Team</p>
-    <h1>Education</h1>
-    <p class="lede">
-      Async, hands-on modules for undergraduates — from first tools to GDSII —
-      using an open-source toolchain. Start with the shared workspace, then IC101.
-    </p>
 
-    <h2>Start here</h2>
-    <ol class="steps">
-      <li>
-        <span class="n">1</span>
-        <span>Clone the shared <a href="https://github.com/uoftasic/workspace">workspace</a> once (Docker + IIC-OSIC-TOOLS). Later courses drop into <code>modules/</code> via <code>mod add</code>.</span>
+<header class="masthead">
+  <div class="masthead__inner">
+    <a class="brand" href="https://uoftasic.com/">
+      <svg class="mark" viewBox="0 0 13 13" role="img" aria-label="UofT ASIC" focusable="false"><path fill="currentColor" d="M6 0h1v1h-1zM5 1h1v1h-1zM6 1h1v1h-1zM7 1h1v1h-1zM2 2h1v1h-1zM5 2h1v1h-1zM6 2h1v1h-1zM7 2h1v1h-1zM10 2h1v1h-1zM2 3h1v1h-1zM3 3h1v1h-1zM5 3h1v1h-1zM6 3h1v1h-1zM7 3h1v1h-1zM9 3h1v1h-1zM10 3h1v1h-1zM2 4h1v1h-1zM3 4h1v1h-1zM4 4h1v1h-1zM5 4h1v1h-1zM6 4h1v1h-1zM7 4h1v1h-1zM8 4h1v1h-1zM9 4h1v1h-1zM10 4h1v1h-1zM0 5h1v1h-1zM2 5h1v1h-1zM3 5h1v1h-1zM4 5h1v1h-1zM5 5h1v1h-1zM6 5h1v1h-1zM7 5h1v1h-1zM8 5h1v1h-1zM9 5h1v1h-1zM10 5h1v1h-1zM12 5h1v1h-1zM0 6h1v1h-1zM1 6h1v1h-1zM2 6h1v1h-1zM3 6h1v1h-1zM4 6h1v1h-1zM5 6h1v1h-1zM6 6h1v1h-1zM7 6h1v1h-1zM8 6h1v1h-1zM9 6h1v1h-1zM10 6h1v1h-1zM11 6h1v1h-1zM12 6h1v1h-1zM1 7h1v1h-1zM2 7h1v1h-1zM3 7h1v1h-1zM4 7h1v1h-1zM5 7h1v1h-1zM6 7h1v1h-1zM7 7h1v1h-1zM8 7h1v1h-1zM9 7h1v1h-1zM10 7h1v1h-1zM11 7h1v1h-1zM3 8h1v1h-1zM4 8h1v1h-1zM5 8h1v1h-1zM6 8h1v1h-1zM7 8h1v1h-1zM8 8h1v1h-1zM9 8h1v1h-1zM4 9h1v1h-1zM5 9h1v1h-1zM6 9h1v1h-1zM7 9h1v1h-1zM8 9h1v1h-1zM6 10h1v1h-1zM6 11h1v1h-1zM6 12h1v1h-1z"/></svg>
+      <span class="brand__name">UofT ASIC</span>
+    </a>
+    <nav class="nav" aria-label="Primary">
+      <a href="https://uoftasic.com/projects/" class="nav__link">Projects</a>
+      <a href="https://uoftasic.com/blog/" class="nav__link">Writing</a>
+      <a href="https://edu.uoftasic.com/" class="nav__link is-current" aria-current="page">Education</a>
+      <a href="https://uoftasic.com/about/" class="nav__link">About</a>
+      <a href="https://uoftasic.com/join/" class="nav__link nav__link--cta">Join</a>
+    </nav>
+  </div>
+</header>
+
+<main class="shell">
+
+  <section class="hero">
+    <p class="hero__eyebrow">Internal education</p>
+    <h1>Learn to design a chip.</h1>
+    <p class="hero__lede">Self-paced courses that start from no background and end with a
+      layout you drew and a design you hardened &mdash; on the same open-source tools the
+      team uses for real tapeouts. <strong>9 courses are open now.</strong></p>
+  </section>
+
+  <section class="gate" aria-labelledby="gate-h">
+    <p class="gate__badge">Start here</p>
+    <div class="gate__body">
+      <h2 id="gate-h"><span class="gate__code">IC101</span>Onboarding onto Tools</h2>
+      <p>Set up the shared Docker workspace and SKY130 toolchain every later course builds on. Every course below assumes it, so it is the one thing you have to
+        do first.</p>
+    </div>
+    <a class="gate__cta" href="https://uoftasic.com/ic101/">Begin &rarr;</a>
+  </section>
+
+  <p class="fork-note">Then pick a track</p>
+
+  <div class="tracks">
+  <section class="track track--analog" aria-labelledby="track-analog">
+    <header class="track__head">
+      <h2 class="track__name" id="track-analog">Analog</h2>
+      <p class="track__blurb">From a waveform on a screen to transistors you have drawn yourself.</p>
+      <p class="track__count"><span class="track__n">4</span> of 6 open</p>
+    </header>
+    <ol class="ladder">
+      <li class="ladder__level">
+        <ol class="ladder__row"><li class="step step--analog"><a class="step__link" href="https://uoftasic.com/ad101/"><span class="step__code">AD101</span><span class="step__name">Signals</span><span class="step__summary">Waveforms, spectra, and Bode plots — a gentle primer before circuits.</span><span class="step__go" aria-hidden="true">&rarr;</span></a></li></ol>
       </li>
-      <li>
-        <span class="n">2</span>
-        <span>Complete <a href="https://uoftasic.com/ic101/">IC101 — Onboarding onto Tools</a>.</span>
+      <li class="ladder__level">
+        <ol class="ladder__row"><li class="step step--analog"><a class="step__link" href="https://uoftasic.com/ad102/"><span class="step__code">AD102</span><span class="step__name">Linear Circuits &amp; Fabrication</span><span class="step__summary">Linear analysis folded together with how passives are fabricated on-chip.</span><span class="step__go" aria-hidden="true">&rarr;</span></a></li></ol>
       </li>
-      <li>
-        <span class="n">3</span>
-        <span>Pick Analog or Digital below and work through courses in order.</span>
+      <li class="ladder__level">
+        <ol class="ladder__row"><li class="step step--analog"><a class="step__link" href="https://uoftasic.com/ad103/"><span class="step__code">AD103</span><span class="step__name">Nonlinear Circuits</span><span class="step__summary">The diode and MOSFET in XSchem: regions of operation and key device parameters.</span><span class="step__go" aria-hidden="true">&rarr;</span></a></li></ol>
+      </li>
+      <li class="ladder__level">
+        <ol class="ladder__row"><li class="step step--analog"><a class="step__link" href="https://uoftasic.com/ad104/"><span class="step__code">AD104</span><span class="step__name">Layout</span><span class="step__summary">Full-custom layout: stick diagrams, DRC/LVS-clean cells, PEX, and manual P&amp;R.</span><span class="step__go" aria-hidden="true">&rarr;</span></a></li></ol>
+      </li>
+      <li class="ladder__level">
+        <ol class="ladder__row"><li class="step step--analog step--planned"><div class="step__link"><span class="step__code">AD201</span><span class="step__name">Analog Signal Processing</span><span class="step__summary">Stretch track: filters, amplifiers, and the OpAmp.</span><span class="step__tag">planned</span></div></li></ol>
+      </li>
+      <li class="ladder__level">
+        <ol class="ladder__row"><li class="step step--analog step--planned"><div class="step__link"><span class="step__code">AD202</span><span class="step__name">Mixed Signal</span><span class="step__summary">Stretch track: ADCs, DACs, and the analog/digital interface.</span><span class="step__tag">planned</span></div></li></ol>
       </li>
     </ol>
+  </section>
+  <section class="track track--digital" aria-labelledby="track-digital">
+    <header class="track__head">
+      <h2 class="track__name" id="track-digital">Digital</h2>
+      <p class="track__blurb">From a truth table to a hardened GDSII, and proof that it works.</p>
+      <p class="track__count"><span class="track__n">4</span> of 6 open</p>
+    </header>
+    <ol class="ladder">
+      <li class="ladder__level">
+        <ol class="ladder__row"><li class="step step--digital"><a class="step__link" href="https://uoftasic.com/dd101/"><span class="step__code">DD101</span><span class="step__name">Intro to Digital Logic</span><span class="step__summary">Logic from first principles and lowering to gates.</span><span class="step__go" aria-hidden="true">&rarr;</span></a></li></ol>
+      </li>
+      <li class="ladder__level">
+        <ol class="ladder__row"><li class="step step--digital"><a class="step__link" href="https://uoftasic.com/dd102/"><span class="step__code">DD102</span><span class="step__name">Digital Logic &amp; FPGAs</span><span class="step__summary">RTL on FPGAs and SystemVerilog, culminating in a ripple adder.</span><span class="step__go" aria-hidden="true">&rarr;</span></a></li></ol>
+      </li>
+      <li class="ladder__level">
+        <ol class="ladder__row"><li class="step step--digital"><a class="step__link" href="https://uoftasic.com/dd103/"><span class="step__code">DD103</span><span class="step__name">RTL on FPGAs &amp; ASICs</span><span class="step__summary">SystemVerilog in depth and the open-source RTL-to-GDSII flow.</span><span class="step__go" aria-hidden="true">&rarr;</span></a></li></ol>
+      </li>
+      <li class="ladder__level ladder__level--fork">
+        <p class="ladder__fork">3 ways on from DD103 &mdash; take them in any order</p>
+        <ol class="ladder__row"><li class="step step--digital"><a class="step__link" href="https://uoftasic.com/dd104/"><span class="step__code">DD104</span><span class="step__name">Pre-Silicon Verification</span><span class="step__summary">Verification with open-source tools: testbench a buggy core and fix it.</span><span class="step__go" aria-hidden="true">&rarr;</span></a></li><li class="step step--digital step--planned"><div class="step__link"><span class="step__code">DD201</span><span class="step__name">HLS</span><span class="step__summary">Stretch track: high-level synthesis languages.</span><span class="step__tag">planned</span></div></li><li class="step step--digital step--planned"><div class="step__link"><span class="step__code">DD202</span><span class="step__name">Computer Architecture</span><span class="step__summary">Stretch track: memory architecture and a simple computer.</span><span class="step__tag">planned</span></div></li></ol>
+      </li>
+    </ol>
+  </section>
+  </div>
 
-    <h2>Available now</h2>
-    <ul class="catalog">
-      <li>
-        <a href="https://uoftasic.com/ic101/">
-          <strong>IC101 — Onboarding onto Tools</strong>
-          <span>Set up the shared Docker workspace and SKY130 toolchain every later course builds on.</span>
-        </a>
-      </li>
-      <li>
-        <a href="https://uoftasic.com/ad101/">
-          <strong>AD101 — Signals</strong>
-          <span>Waveforms, spectra, and Bode plots — a gentle primer before circuits.</span>
-        </a>
-      </li>
-      <li>
-        <a href="https://uoftasic.com/ad102/">
-          <strong>AD102 — Linear Circuits &amp; Fabrication</strong>
-          <span>Linear analysis folded together with how passives are fabricated on-chip.</span>
-        </a>
-      </li>
-      <li>
-        <a href="https://uoftasic.com/ad103/">
-          <strong>AD103 — Nonlinear Circuits</strong>
-          <span>The diode and MOSFET in XSchem: regions of operation and key device parameters.</span>
-        </a>
-      </li>
-      <li>
-        <a href="https://uoftasic.com/ad104/">
-          <strong>AD104 — Layout</strong>
-          <span>Full-custom layout: stick diagrams, DRC/LVS-clean cells, PEX, and manual P&amp;R.</span>
-        </a>
-      </li>
-      <li>
-        <a href="https://uoftasic.com/dd101/">
-          <strong>DD101 — Intro to Digital Logic</strong>
-          <span>Logic from first principles and lowering to gates.</span>
-        </a>
-      </li>
-      <li>
-        <a href="https://uoftasic.com/dd102/">
-          <strong>DD102 — Digital Logic &amp; FPGAs</strong>
-          <span>RTL on FPGAs and SystemVerilog, culminating in a ripple adder.</span>
-        </a>
-      </li>
-      <li>
-        <a href="https://uoftasic.com/dd103/">
-          <strong>DD103 — RTL on FPGAs &amp; ASICs</strong>
-          <span>SystemVerilog in depth and the open-source RTL-to-GDSII flow.</span>
-        </a>
-      </li>
-      <li>
-        <a href="https://uoftasic.com/dd104/">
-          <strong>DD104 — Pre-Silicon Verification</strong>
-          <span>Verification with open-source tools: testbench a buggy core and fix it.</span>
-        </a>
-      </li>
-    </ul>
-
-    <h2>Roadmap</h2>
-    <p class="lede" style="margin-bottom:1rem;font-size:1rem;animation:none;">
-      Planned modules — titles only until each course site publishes.
-    </p>
-    <div class="tracks">
-      <div class="track">
-        <h3>Analog</h3>
-        <ul class="roadmap">
-          <li><span class="id">AD201</span> Analog Signal Processing<em>Stretch track: filters, amplifiers, and the OpAmp.</em></li>
-          <li><span class="id">AD202</span> Mixed Signal<em>Stretch track: ADCs, DACs, and the analog/digital interface.</em></li>
-        </ul>
-      </div>
-      <div class="track">
-        <h3>Digital</h3>
-        <ul class="roadmap">
-          <li><span class="id">DD201</span> HLS<em>Stretch track: high-level synthesis languages.</em></li>
-          <li><span class="id">DD202</span> Computer Architecture<em>Stretch track: memory architecture and a simple computer.</em></li>
-        </ul>
-      </div>
+  <section class="tools">
+    <div>
+      <h2>One workbench, every course</h2>
+      <p>Every course mounts into the same container &mdash; XSchem, ngspice, Magic, KLayout,
+        Yosys and LibreLane, already configured against the SKY130 process. Set it up once in
+        IC101 and never install a tool again.</p>
     </div>
+    <div class="tools__links">
+      <a class="btn" href="https://github.com/uoftasic/workspace">Workspace repo</a>
+      <a class="btn" href="https://uoftasic.com/course-template/">Course template</a>
+    </div>
+  </section>
 
-    <footer>
-      Maintainers: stamp new courses from the
-      <a href="https://uoftasic.com/course-template/">course template</a>.
-      Edit <code>data/courses.json</code> and run <code>python scripts/build.py</code> to refresh this hub.
-    </footer>
-  </main>
+</main>
+
+<footer class="footer">
+  <div class="footer__inner">
+    <div class="footer__brand">
+      <svg class="mark" viewBox="0 0 13 13" role="img" aria-label="UofT ASIC" focusable="false"><path fill="currentColor" d="M6 0h1v1h-1zM5 1h1v1h-1zM6 1h1v1h-1zM7 1h1v1h-1zM2 2h1v1h-1zM5 2h1v1h-1zM6 2h1v1h-1zM7 2h1v1h-1zM10 2h1v1h-1zM2 3h1v1h-1zM3 3h1v1h-1zM5 3h1v1h-1zM6 3h1v1h-1zM7 3h1v1h-1zM9 3h1v1h-1zM10 3h1v1h-1zM2 4h1v1h-1zM3 4h1v1h-1zM4 4h1v1h-1zM5 4h1v1h-1zM6 4h1v1h-1zM7 4h1v1h-1zM8 4h1v1h-1zM9 4h1v1h-1zM10 4h1v1h-1zM0 5h1v1h-1zM2 5h1v1h-1zM3 5h1v1h-1zM4 5h1v1h-1zM5 5h1v1h-1zM6 5h1v1h-1zM7 5h1v1h-1zM8 5h1v1h-1zM9 5h1v1h-1zM10 5h1v1h-1zM12 5h1v1h-1zM0 6h1v1h-1zM1 6h1v1h-1zM2 6h1v1h-1zM3 6h1v1h-1zM4 6h1v1h-1zM5 6h1v1h-1zM6 6h1v1h-1zM7 6h1v1h-1zM8 6h1v1h-1zM9 6h1v1h-1zM10 6h1v1h-1zM11 6h1v1h-1zM12 6h1v1h-1zM1 7h1v1h-1zM2 7h1v1h-1zM3 7h1v1h-1zM4 7h1v1h-1zM5 7h1v1h-1zM6 7h1v1h-1zM7 7h1v1h-1zM8 7h1v1h-1zM9 7h1v1h-1zM10 7h1v1h-1zM11 7h1v1h-1zM3 8h1v1h-1zM4 8h1v1h-1zM5 8h1v1h-1zM6 8h1v1h-1zM7 8h1v1h-1zM8 8h1v1h-1zM9 8h1v1h-1zM4 9h1v1h-1zM5 9h1v1h-1zM6 9h1v1h-1zM7 9h1v1h-1zM8 9h1v1h-1zM6 10h1v1h-1zM6 11h1v1h-1zM6 12h1v1h-1z"/></svg>
+      <span>UofT ASIC &mdash; Education</span>
+    </div>
+    <p class="footer__note">Edit <code>data/courses.json</code> and run
+      <code>python scripts/build.py</code> to refresh this page.</p>
+  </div>
+</footer>
+
 </body>
 </html>

@@ -115,8 +115,8 @@ def track_html(label, slug, blurb, levels):
             rows.append(
                 '      <li class="ladder__level ladder__level--fork">\n'
                 '        <p class="ladder__fork">' + str(len(level))
-                + ' ways on from ' + html.escape(after)
-                + ' &mdash; take them in any order</p>\n'
+                + ' courses after ' + html.escape(after)
+                + ': take them in any order</p>\n'
                 '        <ol class="ladder__row">' + steps + '</ol>\n'
                 '      </li>'
             )
@@ -352,7 +352,7 @@ a.step__link:hover .step__go{color:var(--blue)}
     <p class="hero__eyebrow">Internal education</p>
     <h1>Learn to design a chip.</h1>
     <p class="hero__lede">Self-paced courses that start from no background and end with a
-      layout you drew and a design you hardened &mdash; on the same open-source tools the
+      layout you drew and a design you hardened. You work on the same open-source tools the
       team uses for real tapeouts. <strong>{total_live} courses are open now.</strong></p>
   </section>
 
@@ -360,8 +360,7 @@ a.step__link:hover .step__go{color:var(--blue)}
     <p class="gate__badge">Start here</p>
     <div class="gate__body">
       <h2 id="gate-h"><span class="gate__code">{gate_code}</span>{gate_name}</h2>
-      <p>{gate_summary} Every course below assumes it, so it is the one thing you have to
-        do first.</p>
+      <p>{gate_summary} Every course below needs it, so take it first.</p>
     </div>
     {gate_cta}
   </section>
@@ -374,10 +373,10 @@ a.step__link:hover .step__go{color:var(--blue)}
 
   <section class="tools">
     <div>
-      <h2>One workbench, every course</h2>
-      <p>Every course mounts into the same container &mdash; XSchem, ngspice, Magic, KLayout,
-        Yosys and LibreLane, already configured against the SKY130 process. Set it up once in
-        {gate_code} and never install a tool again.</p>
+      <h2>The shared workbench</h2>
+      <p>The courses that use EDA tools all run in the same container, with XSchem, ngspice,
+        Magic, KLayout, Yosys and LibreLane already set up for the SKY130 process. You set it
+        up once, in {gate_code}, and reuse it from then on.</p>
     </div>
     <div class="tools__links">
       <a class="btn" href="{workspace}">Workspace repo</a>

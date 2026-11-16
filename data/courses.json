@@ -8,7 +8,7 @@
       "track": "Core",
       "status": "live",
       "prereqs": [],
-      "summary": "Install Docker and set up the shared workbench: a Linux desktop that runs in a browser tab on your laptop, with the team's chip design tools and the SKY130 PDK. Every other course here requires it."
+      "summary": "Install git and Docker, then set up the workbench: a Linux desktop that runs in a browser tab on your laptop and has the chip design tools and the SKY130 PDK installed."
     },
     {
       "id": "ic102-a",

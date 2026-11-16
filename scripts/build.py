@@ -36,9 +36,11 @@ MARK = (
 
 TRACKS = [
     ("Analog", "analog",
-     "From a waveform on a screen to transistors you have drawn yourself."),
+     "Simulate circuits with the SKY130 device models in ngspice and XSchem, "
+     "and draw their layout in Magic."),
     ("Digital", "digital",
-     "From a truth table to a hardened GDSII, and proof that it works."),
+     "Write logic in SystemVerilog, build it for an FPGA and as a chip layout, "
+     "and test it with cocotb and UVM."),
 ]
 
 
@@ -277,7 +279,7 @@ TEMPLATE = r"""<!DOCTYPE html>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Education &mdash; UofT ASIC</title>
-<meta name="description" content="Self-paced courses that take you from no background to a chip design you hardened yourself, on the open-source tools the team uses.">
+<meta name="description" content="Self-paced courses from the UofT ASIC Team on designing analog and digital chips, and the boards they sit on, with open-source tools.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..800&amp;family=IBM+Plex+Mono:wght@400;500&amp;family=Newsreader:ital,opsz,wght@0,6..72,400..700;1,6..72,400..700&amp;display=swap">
@@ -506,16 +508,16 @@ a.variant__link:hover .step__go{color:var(--blue)}
   <section class="hero">
     <p class="hero__eyebrow">Internal education</p>
     <h1>Learn to design a chip.</h1>
-    <p class="hero__lede">Self-paced courses that start from no background and end with a
-      layout you drew and a design you hardened. You work on the same open-source tools the
-      team uses for real tapeouts. <strong>{total_live} courses are open now.</strong></p>
+    <p class="hero__lede">The courses here are self-paced, and they teach the open-source tools
+      the team uses for its own tapeouts. You don't need any background in chip design to
+      start. <strong>{total_live} courses are open now.</strong></p>
   </section>
 
   <section class="gate" aria-labelledby="gate-h">
     <p class="gate__badge">Start here</p>
     <div class="gate__body">
       <h2 id="gate-h"><span class="gate__code">{gate_code}</span>{gate_name}</h2>
-      <p>{gate_summary} Every course below needs it, so take it first.</p>
+      <p>{gate_summary}</p>
     </div>
     {gate_cta}
   </section>
@@ -529,9 +531,9 @@ a.variant__link:hover .step__go{color:var(--blue)}
   <section class="tools">
     <div>
       <h2>The shared workbench</h2>
-      <p>The courses that use EDA tools all run in the same container, with XSchem, ngspice,
-        Magic, KLayout, Yosys and LibreLane already set up for the SKY130 process. You set it
-        up once, in {gate_code}, and reuse it from then on.</p>
+      <p>Most of the courses run in the workbench you set up in {gate_code}, a container whose
+        tools include XSchem, ngspice, Magic, KLayout, Yosys and LibreLane. DD101 runs in your
+        browser instead.</p>
     </div>
     <div class="tools__links">
       <a class="btn" href="{workspace}">Workspace repo</a>

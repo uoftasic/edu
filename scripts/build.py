@@ -74,16 +74,18 @@ def levels_for(courses, track):
     require DD103 and none requires another.
     """
     by_id = {c["id"]: c for c in courses}
+    # A prerequisite can be a group id, meaning either version. The versions
+    # share their prereqs, so any one of them stands in for the group.
+    for c in courses:
+        if "group" in c:
+            by_id.setdefault(c["group"], c)
     depth = {}
 
     def depth_of(cid):
         if cid in depth:
             return depth[cid]
-        course = by_id.get(cid)
-        if course is None or not course["prereqs"]:
-            depth[cid] = 0
-        else:
-            depth[cid] = 1 + max(depth_of(p) for p in course["prereqs"])
+        prereqs = by_id[cid]["prereqs"]
+        depth[cid] = 1 + max(depth_of(p) for p in prereqs) if prereqs else 0
         return depth[cid]
 
     grouped = defaultdict(list)
@@ -210,9 +212,15 @@ def track_html(label, slug, blurb, levels):
     )
 
 
-def check_versions(courses):
-    """The versions of a course must land on the same level of the same track,
-    or the ladder would split them into two steps."""
+def check_courses(courses):
+    """Stop on data that the ladder would otherwise draw wrong.
+
+    The versions of a course must land on the same level of the same track, or
+    the ladder would split them into two steps. And every prerequisite must be
+    a course id or a group id, or the course would be drawn at the top of its
+    track as if it needed nothing.
+    """
+    ids = {c["id"] for c in courses}
     seen = {}
     for c in courses:
         if "group" in c:
@@ -220,11 +228,16 @@ def check_versions(courses):
             if seen.setdefault(c["group"], place) != place:
                 raise SystemExit(c["id"] + ": the versions of " + c["group"]
                                  + " must have the same track and prereqs")
+    for c in courses:
+        for p in c["prereqs"]:
+            if p not in ids and p not in seen:
+                raise SystemExit(c["id"] + ": prereq " + p
+                                 + " is not the id of a course or a group")
 
 
 def render(data):
     courses = data["courses"]
-    check_versions(courses)
+    check_courses(courses)
     workspace = html.escape(data["workspace_url"])
     template = html.escape(data["template_url"])
     by_id = {c["id"]: c for c in courses}

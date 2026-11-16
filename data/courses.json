@@ -112,7 +112,7 @@
       "track": "Digital",
       "status": "live",
       "prereqs": ["dd102"],
-      "summary": "Synthesize your DD102 adder for an FPGA and for SKY130 standard cells, then finish a four-floor elevator controller from its state table and take it through the open-source RTL-to-GDSII flow."
+      "summary": "Synthesize your DD102 adder for an FPGA and for SKY130 standard cells, then finish a four-floor elevator controller from its state table and take it through the open-source flow to a GDSII layout."
     },
     {
       "id": "dd104",

@@ -36,11 +36,11 @@ MARK = (
 
 TRACKS = [
     ("Analog", "analog",
-     "Simulate circuits with the SKY130 device models in ngspice and XSchem, "
-     "and draw their layout in Magic."),
+     "Simulate circuits with the SKY130 device models, and draw their layout "
+     "yourself."),
     ("Digital", "digital",
      "Write logic in SystemVerilog, build it for an FPGA and as a chip layout, "
-     "and test it with cocotb and UVM."),
+     "and test it."),
 ]
 
 # The Core courses after the gate (IC102, IC103) need IC101 and nothing from
@@ -291,7 +291,7 @@ TEMPLATE = r"""<!DOCTYPE html>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Education &mdash; UofT ASIC</title>
-<meta name="description" content="Self-paced courses from the UofT ASIC Team on designing analog and digital chips, and the boards they sit on, with open-source tools.">
+<meta name="description" content="Self-paced courses from the UofT ASIC Team on designing analog and digital chips with open-source tools, and the boards those chips sit on.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..800&amp;family=IBM+Plex+Mono:wght@400;500&amp;family=Newsreader:ital,opsz,wght@0,6..72,400..700;1,6..72,400..700&amp;display=swap">

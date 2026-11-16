@@ -8,7 +8,7 @@
       "track": "Core",
       "status": "live",
       "prereqs": [],
-      "summary": "Set up the shared Docker workspace and SKY130 toolchain every later course builds on."
+      "summary": "Learn how to set up IC tools and workspace on your device."
     },
     {
       "id": "ad101",
@@ -16,7 +16,7 @@
       "track": "Analog",
       "status": "live",
       "prereqs": ["ic101"],
-      "summary": "Waveforms, spectra and Bode plots: a gentle primer before circuits."
+      "summary": "Use notes and chords to learn to read signals in time and in frequency, and to see what a filter does to them."
     },
     {
       "id": "ad102",
@@ -24,7 +24,7 @@
       "track": "Analog",
       "status": "live",
       "prereqs": ["ad101"],
-      "summary": "Linear circuit analysis, together with how passives are fabricated on-chip."
+      "summary": "Find out how resistors and capacitors are built on a SKY130 chip, and size your own to hit target values inside an area budget."
     },
     {
       "id": "ad103",
@@ -32,7 +32,7 @@
       "track": "Analog",
       "status": "live",
       "prereqs": ["ad102"],
-      "summary": "The diode and MOSFET in XSchem: regions of operation and key device parameters."
+      "summary": "Simulate diodes and MOSFETs with the SKY130 device models, and finish with a CMOS inverter that you draw in XSchem and size yourself."
     },
     {
       "id": "ad104",
@@ -40,7 +40,7 @@
       "track": "Analog",
       "status": "live",
       "prereqs": ["ad103"],
-      "summary": "Full-custom layout: stick diagrams, DRC/LVS-clean cells, PEX, and manual P&R."
+      "summary": "Draw a CMOS inverter as a chip layout in Magic and get it through DRC and LVS, then place and route four standard cells by hand."
     },
     {
       "id": "ad201",
@@ -64,7 +64,7 @@
       "track": "Digital",
       "status": "live",
       "prereqs": ["ic101"],
-      "summary": "Logic from first principles and lowering to gates."
+      "summary": "Build logic circuits in browser simulators, from a single NAND gate up to a full adder."
     },
     {
       "id": "dd102",
@@ -72,7 +72,7 @@
       "track": "Digital",
       "status": "live",
       "prereqs": ["dd101"],
-      "summary": "RTL on FPGAs and SystemVerilog, ending with a ripple adder."
+      "summary": "Type the full adder you drew in DD101 into SystemVerilog and test it, then chain four copies into a 4-bit adder and turn that into an FPGA bitstream."
     },
     {
       "id": "dd103",
@@ -80,7 +80,7 @@
       "track": "Digital",
       "status": "live",
       "prereqs": ["dd102"],
-      "summary": "SystemVerilog in depth and the open-source RTL-to-GDSII flow."
+      "summary": "Run the same SystemVerilog through an FPGA flow and an ASIC flow, and take an elevator controller from its state table to a chip layout that passes DRC and LVS."
     },
     {
       "id": "dd104",
@@ -88,7 +88,7 @@
       "track": "Digital",
       "status": "live",
       "prereqs": ["dd103"],
-      "summary": "Verification with open-source tools: write a testbench for a buggy core, then fix the core."
+      "summary": "Write cocotb tests that catch all thirteen broken versions of SimProc, an 8-bit processor written by students on the team."
     },
     {
       "id": "dd105-a",
@@ -99,7 +99,7 @@
       "group": "dd105",
       "variant": "A",
       "label": "SystemVerilog and UVM, on Verilator",
-      "summary": "Build a UVM testbench in SystemVerilog on Verilator, and find out what the framework costs and buys.",
+      "summary": "Build a UVM testbench for a packet router and use it to find the bugs planted in its design.",
       "pick": "Take this version if you want to write the testbench in SystemVerilog, the same language as your RTL."
     },
     {

@@ -112,7 +112,7 @@
       "track": "Digital",
       "status": "live",
       "prereqs": ["dd102"],
-      "summary": "Learn more SystemVerilog by designing a 4-floor elevator controller from its state table, then take it through the open-source RTL-to-GDSII flow to a layout that passes DRC and LVS."
+      "summary": "Write more SystemVerilog, up to a 4-floor elevator controller designed from its state table, and take it through the open-source RTL-to-GDSII flow to a layout that passes DRC and LVS."
     },
     {
       "id": "dd104",

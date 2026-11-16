@@ -21,7 +21,7 @@ python3 -m http.server -d . 8765
 | `title` | Course code, an em dash, then the name (`AD101 — Signals`). The hub shows the part after the dash as the name. |
 | `track` | `Core`, `Analog` or `Digital` |
 | `status` | `live` (linked) or `planned` (shown on the roadmap only) |
-| `prereqs` | Ids of the courses this one requires. The hub places each course one level below its prerequisites. |
+| `prereqs` | Ids of the courses this one requires. The hub places each course one level below its prerequisites. A `group` id, such as `dd105`, means either version of that course, and `build.py` stops with an error on an id that is neither a course nor a group. |
 | `summary` | One-line description |
 
 Some courses come in versions that teach the same thing with different tools, and a student takes only one of them, as with DD105-A and DD105-B. Each version has its own entry, with these four fields as well:

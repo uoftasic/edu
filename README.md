@@ -24,6 +24,15 @@ python3 -m http.server -d . 8765
 | `prereqs` | Ids of the courses this one requires. The hub places each course one level below its prerequisites. |
 | `summary` | One-line description |
 
+Some courses come in versions that teach the same thing with different tools, and a student takes only one of them, as with DD105-A and DD105-B. Each version has its own entry, with these four fields as well:
+
+| Field | Notes |
+|-------|--------|
+| `group` | The id the versions share (`dd105`). The hub shows them as one step in the ladder, split between the versions, with the group id as its code and the name from the first version's `title`. It counts them as one course in its totals of open courses. The versions must have the same `track` and `prereqs`, and `build.py` stops with an error if they don't. |
+| `variant` | The version's letter (`A`, `B`). The hub shows the versions in letter order. |
+| `label` | What the version uses, such as `SystemVerilog and UVM, on Verilator`. |
+| `pick` | One sentence on who should take this version. |
+
 ## Deploy
 
 The workflow is [`.github/workflows/deploy-hub.yml`](.github/workflows/deploy-hub.yml).

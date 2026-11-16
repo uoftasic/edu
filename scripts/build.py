@@ -50,6 +50,12 @@ def code_of(course):
     return course["id"].upper()
 
 
+def key_of(course):
+    """What the hub counts as one course: the group id for a course that comes in
+    versions, since a student takes only one of them."""
+    return course.get("group", course["id"])
+
+
 def name_of(course):
     """The part after the em dash, which is the course's actual name."""
     title = course["title"]
@@ -102,21 +108,84 @@ def step_html(c, slug):
             + '<span class="step__tag">planned</span></div></li>')
 
 
+def items_of(level):
+    """A level's ladder items: each course on its own, except that the versions of
+    one course are gathered into a list, in the order of their variant letters."""
+    items, groups = [], {}
+    for c in level:
+        if "group" not in c:
+            items.append(c)
+        elif c["group"] in groups:
+            groups[c["group"]].append(c)
+        else:
+            groups[c["group"]] = [c]
+            items.append(groups[c["group"]])
+    for versions in groups.values():
+        versions.sort(key=lambda v: v["variant"])
+    return items
+
+
+def variant_html(v):
+    live = v["status"] == "live"
+    inner = (
+        '<span class="step__code">' + html.escape(code_of(v)) + '</span>'
+        '<span class="variant__label">' + html.escape(v["label"]) + '</span>'
+        '<span class="variant__summary">' + html.escape(v["summary"]) + '</span>'
+        '<span class="variant__pick">' + html.escape(v["pick"]) + '</span>'
+    )
+    if live:
+        return ('<li class="variant"><a class="variant__link" href="' + url(v["id"]) + '">'
+                + inner + '<span class="step__go" aria-hidden="true">&rarr;</span></a></li>')
+    return ('<li class="variant variant--planned"><div class="variant__link">' + inner
+            + '<span class="step__tag">planned</span></div></li>')
+
+
+def variants_html(versions, slug):
+    """One ladder step for a course that comes in versions, such as DD105-A and
+    DD105-B. The versions teach the same course with different tools and a
+    student takes one, so they share a card split between them, rather than
+    sitting in a fork like courses you can take in any order."""
+    first = versions[0]
+    return (
+        '<li class="step step--' + slug + ' step--variants">'
+        '<p class="variants__head"><span class="step__code">'
+        + html.escape(first["group"].upper()) + '</span>'
+        '<span class="step__name">' + html.escape(name_of(first)) + '</span></p>'
+        '<ol class="variants">' + "".join(variant_html(v) for v in versions) + '</ol></li>'
+    )
+
+
 def track_html(label, slug, blurb, levels):
     rows = []
     for level in levels:
-        steps = "".join(step_html(c, slug) for c in level)
-        if len(level) > 1:
+        items = items_of(level)
+        steps = "".join(
+            variants_html(i, slug) if isinstance(i, list) else step_html(i, slug)
+            for i in items
+        )
+        shared = sorted({p for c in level for p in c["prereqs"]})
+        after = " and ".join(p.upper() for p in shared)
+        if len(items) > 1:
             # A level with more than one course is a genuine branch: they share a
             # prerequisite and none requires another, so they can be taken in any
             # order. Say so, or the vertical stack reads as a sequence.
-            shared = sorted({p for c in level for p in c["prereqs"]})
-            after = " and ".join(p.upper() for p in shared)
             rows.append(
                 '      <li class="ladder__level ladder__level--fork">\n'
-                '        <p class="ladder__fork">' + str(len(level))
+                '        <p class="ladder__fork">' + str(len(items))
                 + ' courses after ' + html.escape(after)
                 + ': take them in any order</p>\n'
+                '        <ol class="ladder__row">' + steps + '</ol>\n'
+                '      </li>'
+            )
+        elif isinstance(items[0], list):
+            # The level above may be a fork, so name the prerequisite, and say
+            # that the versions are a choice rather than a sequence.
+            note = str(len(items[0])) + " versions"
+            if after:
+                note += " after " + after
+            rows.append(
+                '      <li class="ladder__level ladder__level--variants">\n'
+                '        <p class="ladder__note">' + html.escape(note) + ': take one</p>\n'
                 '        <ol class="ladder__row">' + steps + '</ol>\n'
                 '      </li>'
             )
@@ -126,8 +195,8 @@ def track_html(label, slug, blurb, levels):
                 '        <ol class="ladder__row">' + steps + '</ol>\n'
                 '      </li>'
             )
-    n_live = sum(1 for lv in levels for c in lv if c["status"] == "live")
-    n_all = sum(len(lv) for lv in levels)
+    n_live = len({key_of(c) for lv in levels for c in lv if c["status"] == "live"})
+    n_all = len({key_of(c) for lv in levels for c in lv})
     return (
         '  <section class="track track--' + slug + '" aria-labelledby="track-' + slug + '">\n'
         '    <header class="track__head">\n'
@@ -141,8 +210,21 @@ def track_html(label, slug, blurb, levels):
     )
 
 
+def check_versions(courses):
+    """The versions of a course must land on the same level of the same track,
+    or the ladder would split them into two steps."""
+    seen = {}
+    for c in courses:
+        if "group" in c:
+            place = (c["track"], sorted(c["prereqs"]))
+            if seen.setdefault(c["group"], place) != place:
+                raise SystemExit(c["id"] + ": the versions of " + c["group"]
+                                 + " must have the same track and prereqs")
+
+
 def render(data):
     courses = data["courses"]
+    check_versions(courses)
     workspace = html.escape(data["workspace_url"])
     template = html.escape(data["template_url"])
     by_id = {c["id"]: c for c in courses}
@@ -156,7 +238,7 @@ def render(data):
         track_html(label, slug, blurb, levels_for(courses, label))
         for label, slug, blurb in TRACKS
     )
-    total_live = sum(1 for c in courses if c["status"] == "live")
+    total_live = len({key_of(c) for c in courses if c["status"] == "live"})
 
     # Plain replacement, not str.format: the template carries a full CSS
     # stylesheet and every brace in it would have to be doubled.
@@ -300,6 +382,50 @@ a.step__link:hover .step__go{color:var(--blue)}
 .step--planned .step__link{background:transparent;border-style:dashed}
 .step--planned .step__name{color:var(--ink-2)}
 .step--planned .step__code{opacity:.7}
+
+/* A course in versions (DD105-A and DD105-B): one step, split between the
+   versions with "or" on the split, because a student takes one of them. The
+   caption names the prerequisite, since the level above may be a fork. Subgrid
+   puts each version's label, summary and pick line on a shared row, so they
+   read across as a comparison. The split stacks when the card is narrow; a
+   container query catches that in both the two-track and one-track layouts. */
+.ladder__note{margin:0 0 0 26px;padding:0 0 10px 14px;border-left:2px solid var(--rule);
+  font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--ink-3)}
+.track--analog .ladder__note{border-left-color:#c9b4cf}
+.track--digital .ladder__note{border-left-color:#a8cddb}
+.step--variants{border:1px solid var(--rule);border-radius:2px;background:var(--paper);
+  container-type:inline-size}
+.variants__head{margin:0;display:flex;align-items:baseline;gap:14px;padding:15px 17px 13px;
+  border-bottom:1px solid var(--rule)}
+.variants{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:1fr 1fr}
+.variant{position:relative;display:grid;grid-row:span 4;grid-template-rows:subgrid;
+  min-width:0}
+.variant + .variant{border-left:1px solid var(--rule)}
+.variant + .variant::before{content:"or";position:absolute;z-index:1;left:-14px;top:50%;
+  margin-top:-13px;width:26px;height:26px;border:1px solid var(--rule);border-radius:50%;
+  background:var(--paper);display:flex;align-items:center;justify-content:center;
+  font-family:var(--mono);font-size:10px;letter-spacing:.06em;text-transform:uppercase;
+  line-height:1;color:var(--ink-3)}
+.variant__link{grid-row:span 4;display:grid;grid-template-columns:auto 1fr auto;
+  grid-template-rows:subgrid;gap:4px 14px;align-items:baseline;padding:15px 17px;
+  text-decoration:none;color:inherit}
+a.variant__link:hover{background:var(--paper-2);box-shadow:inset 0 0 0 1px var(--blue)}
+a.variant__link:hover .step__go{color:var(--blue)}
+.variant__label,.variant__summary,.variant__pick{grid-column:1/-1}
+.variant__label{font-weight:600;font-size:16px;letter-spacing:-.012em;line-height:1.35;
+  color:var(--ink)}
+.variant__summary{font-size:14.5px;color:var(--ink-2);line-height:1.5}
+.variant__pick{margin-top:6px;padding-top:9px;border-top:1px solid var(--rule-2);
+  font-size:13.5px;color:var(--ink-2);line-height:1.5}
+.variant--planned .variant__label{color:var(--ink-2)}
+.variant--planned .step__code{opacity:.7}
+@container (max-width:459px){
+  .variants{grid-template-columns:1fr}
+  .variant + .variant{border-left:0;border-top:1px solid var(--rule)}
+  .variant + .variant::before{left:50%;top:-14px;margin:0 0 0 -13px}
+  .variant__link{padding:20px 17px}
+}
 
 .tools{margin:64px 0 0;border-top:1px solid var(--rule);padding:34px 0 0;
   display:grid;grid-template-columns:1fr auto;gap:26px;align-items:center}

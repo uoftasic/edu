@@ -123,6 +123,50 @@ a.step__link:hover .step__go{color:var(--blue)}
 .step--planned .step__name{color:var(--ink-2)}
 .step--planned .step__code{opacity:.7}
 
+/* A course in versions (DD105-A and DD105-B): one step, split between the
+   versions with "or" on the split, because a student takes one of them. The
+   caption names the prerequisite, since the level above may be a fork. Subgrid
+   puts each version's label, summary and pick line on a shared row, so they
+   read across as a comparison. The split stacks when the card is narrow; a
+   container query catches that in both the two-track and one-track layouts. */
+.ladder__note{margin:0 0 0 26px;padding:0 0 10px 14px;border-left:2px solid var(--rule);
+  font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--ink-3)}
+.track--analog .ladder__note{border-left-color:#c9b4cf}
+.track--digital .ladder__note{border-left-color:#a8cddb}
+.step--variants{border:1px solid var(--rule);border-radius:2px;background:var(--paper);
+  container-type:inline-size}
+.variants__head{margin:0;display:flex;align-items:baseline;gap:14px;padding:15px 17px 13px;
+  border-bottom:1px solid var(--rule)}
+.variants{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:1fr 1fr}
+.variant{position:relative;display:grid;grid-row:span 4;grid-template-rows:subgrid;
+  min-width:0}
+.variant + .variant{border-left:1px solid var(--rule)}
+.variant + .variant::before{content:"or";position:absolute;z-index:1;left:-14px;top:50%;
+  margin-top:-13px;width:26px;height:26px;border:1px solid var(--rule);border-radius:50%;
+  background:var(--paper);display:flex;align-items:center;justify-content:center;
+  font-family:var(--mono);font-size:10px;letter-spacing:.06em;text-transform:uppercase;
+  line-height:1;color:var(--ink-3)}
+.variant__link{grid-row:span 4;display:grid;grid-template-columns:auto 1fr auto;
+  grid-template-rows:subgrid;gap:4px 14px;align-items:baseline;padding:15px 17px;
+  text-decoration:none;color:inherit}
+a.variant__link:hover{background:var(--paper-2);box-shadow:inset 0 0 0 1px var(--blue)}
+a.variant__link:hover .step__go{color:var(--blue)}
+.variant__label,.variant__summary,.variant__pick{grid-column:1/-1}
+.variant__label{font-weight:600;font-size:16px;letter-spacing:-.012em;line-height:1.35;
+  color:var(--ink)}
+.variant__summary{font-size:14.5px;color:var(--ink-2);line-height:1.5}
+.variant__pick{margin-top:6px;padding-top:9px;border-top:1px solid var(--rule-2);
+  font-size:13.5px;color:var(--ink-2);line-height:1.5}
+.variant--planned .variant__label{color:var(--ink-2)}
+.variant--planned .step__code{opacity:.7}
+@container (max-width:459px){
+  .variants{grid-template-columns:1fr}
+  .variant + .variant{border-left:0;border-top:1px solid var(--rule)}
+  .variant + .variant::before{left:50%;top:-14px;margin:0 0 0 -13px}
+  .variant__link{padding:20px 17px}
+}
+
 .tools{margin:64px 0 0;border-top:1px solid var(--rule);padding:34px 0 0;
   display:grid;grid-template-columns:1fr auto;gap:26px;align-items:center}
 .tools h2{margin:0 0 7px;font-size:20px;font-weight:700;letter-spacing:-.018em}

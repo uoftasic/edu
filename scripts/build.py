@@ -460,6 +460,15 @@ a.variant__link:hover .step__go{color:var(--blue)}
 @media (max-width:359px){
   .nav{font-size:12px}
 }
+/* Below 375px a card in a fork, indented 44px, has too little room for the
+   code, a name such as "Computer Architecture" and the planned tag on one
+   row, so the code moves above the name. */
+@media (max-width:374px){
+  .step__link{grid-template-columns:1fr auto}
+  .step__link .step__name{grid-row:2;grid-column:1/-1}
+  .step__link .step__summary{grid-row:3;grid-column:1/-1}
+  .step__link .step__go,.step__link .step__tag{grid-column:2}
+}
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
 </style>
 </head>

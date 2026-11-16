@@ -291,7 +291,7 @@ TEMPLATE = r"""<!DOCTYPE html>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Education &mdash; UofT ASIC</title>
-<meta name="description" content="Self-paced courses from the UofT ASIC Team on designing analog and digital chips with open-source tools, and the boards those chips sit on.">
+<meta name="description" content="Self-paced courses from the UofT ASIC Team on designing analog and digital chips and the boards they sit on, with open-source tools.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..800&amp;family=IBM+Plex+Mono:wght@400;500&amp;family=Newsreader:ital,opsz,wght@0,6..72,400..700;1,6..72,400..700&amp;display=swap">
@@ -529,9 +529,9 @@ a.variant__link:hover .step__go{color:var(--blue)}
   <section class="hero">
     <p class="hero__eyebrow">Internal education</p>
     <h1>Learn to design a chip.</h1>
-    <p class="hero__lede">The courses here are self-paced, and they teach the open-source tools
-      the team uses for its own tapeouts. You don't need any background in chip design to
-      start. <strong>{total_live} courses are open now.</strong></p>
+    <p class="hero__lede">You work through these courses at your own pace, on the same
+      open-source tools that the team uses for its own tapeouts, and you can start with no
+      background in chip design. <strong>{total_live} courses are open now.</strong></p>
   </section>
 
   <section class="gate" aria-labelledby="gate-h">
@@ -554,9 +554,9 @@ a.variant__link:hover .step__go{color:var(--blue)}
   <section class="tools">
     <div>
       <h2>The shared workbench</h2>
-      <p>Most of the courses run in the workbench you set up in {gate_code}, a container whose
-        tools include XSchem, ngspice, Magic, KLayout, Yosys and LibreLane. DD101 runs in your
-        browser instead, and IC103 uses KiCad on your own computer.</p>
+      <p>The workbench has XSchem, ngspice, Magic, KLayout, Yosys and LibreLane, among other
+        tools. Every open course uses it except DD101, which runs in your browser, and IC103,
+        which uses KiCad on your own computer.</p>
     </div>
     <div class="tools__links">
       <a class="btn" href="{workspace}">Workspace repo</a>

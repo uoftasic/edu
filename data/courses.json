@@ -91,6 +91,30 @@
       "summary": "Verification with open-source tools: write a testbench for a buggy core, then fix the core."
     },
     {
+      "id": "dd105-a",
+      "title": "DD105-A — Testbenches with UVM",
+      "track": "Digital",
+      "status": "live",
+      "prereqs": ["dd104"],
+      "group": "dd105",
+      "variant": "A",
+      "label": "SystemVerilog and UVM, on Verilator",
+      "summary": "Build a UVM testbench in SystemVerilog on Verilator, and find out what the framework costs and buys.",
+      "pick": "Take this version if you want to write the testbench in SystemVerilog, the same language as your RTL."
+    },
+    {
+      "id": "dd105-b",
+      "title": "DD105-B — Testbenches with UVM",
+      "track": "Digital",
+      "status": "planned",
+      "prereqs": ["dd104"],
+      "group": "dd105",
+      "variant": "B",
+      "label": "Python and pyuvm, on cocotb",
+      "summary": "The same course in Python, with pyuvm and cocotb.",
+      "pick": "Take this version if you want to keep writing tests in Python, as you did with cocotb in DD104."
+    },
+    {
       "id": "dd201",
       "title": "DD201 — HLS",
       "track": "Digital",

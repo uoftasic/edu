@@ -43,6 +43,13 @@ TRACKS = [
      "and test it with cocotb and UVM."),
 ]
 
+# The Core courses after the gate (IC102, IC103) need IC101 and nothing from
+# either track, so they get a ladder of their own below the two tracks.
+CORE = ("Core", "core", "For both tracks",
+        "Take IC102 before your first push to one of the team's Tiny Tapeout "
+        "projects. IC103 is for anyone who will bring up or demonstrate a team "
+        "chip.")
+
 
 def url(cid):
     return "https://uoftasic.com/" + html.escape(cid) + "/"
@@ -253,6 +260,10 @@ def render(data):
         track_html(label, slug, blurb, levels_for(courses, label))
         for label, slug, blurb in TRACKS
     )
+    track, slug, heading, blurb = CORE
+    core_levels = [[c for c in lv if c is not gate] for lv in levels_for(courses, track)]
+    core_levels = [lv for lv in core_levels if lv]
+    core = track_html(heading, slug, blurb, core_levels) if core_levels else ""
     total_live = len({key_of(c) for c in courses if c["status"] == "live"})
 
     # Plain replacement, not str.format: the template carries a full CSS
@@ -261,6 +272,7 @@ def render(data):
     for key, value in (
         ("MARK", MARK),
         ("tracks", tracks),
+        ("core", core),
         ("total_live", str(total_live)),
         ("gate_code", html.escape(code_of(gate))),
         ("gate_name", html.escape(name_of(gate))),
@@ -409,6 +421,15 @@ a.step__link:hover .step__go{color:var(--blue)}
   color:var(--ink-3)}
 .track--analog .ladder__note{border-left-color:#c9b4cf}
 .track--digital .ladder__note{border-left-color:#a8cddb}
+
+/* The Core courses after the gate, under both tracks. Brand blue, since the
+   gate's yellow is too light for text. */
+.track--core{margin:64px 0 0}
+.track--core .track__head{color:var(--blue)}
+.track--core .ladder__level::before{background:#b4c0d4}
+.track--core .ladder__level--fork > .ladder__row{border-left-color:#b4c0d4}
+.track--core .ladder__level--fork .step::before{background:#b4c0d4}
+.track--core .ladder__note{border-left-color:#b4c0d4}
 .step--variants{border:1px solid var(--rule);border-radius:2px;background:var(--paper);
   container-type:inline-size}
 .variants__head{margin:0;display:flex;align-items:baseline;gap:14px;padding:15px 17px 13px;
@@ -528,12 +549,14 @@ a.variant__link:hover .step__go{color:var(--blue)}
 {tracks}
   </div>
 
+{core}
+
   <section class="tools">
     <div>
       <h2>The shared workbench</h2>
       <p>Most of the courses run in the workbench you set up in {gate_code}, a container whose
         tools include XSchem, ngspice, Magic, KLayout, Yosys and LibreLane. DD101 runs in your
-        browser instead.</p>
+        browser instead, and IC103 uses KiCad on your own computer.</p>
     </div>
     <div class="tools__links">
       <a class="btn" href="{workspace}">Workspace repo</a>

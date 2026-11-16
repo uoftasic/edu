@@ -454,8 +454,6 @@ a.variant__link:hover .step__go{color:var(--blue)}
   display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap}
 .footer__brand{display:flex;align-items:center;gap:10px;color:var(--ink-2);font-size:14px}
 .footer__brand .mark{width:20px;height:20px;color:var(--ink-3)}
-.footer__note{color:var(--ink-3);font-size:13.5px;margin:0}
-.footer__note code{font-family:var(--mono);font-size:12.5px}
 
 @media (max-width:860px){
   .tracks{grid-template-columns:1fr;gap:44px}
@@ -549,8 +547,6 @@ a.variant__link:hover .step__go{color:var(--blue)}
       {MARK}
       <span>UofT ASIC &mdash; Education</span>
     </div>
-    <p class="footer__note">Edit <code>data/courses.json</code> and run
-      <code>python scripts/build.py</code> to refresh this page.</p>
   </div>
 </footer>
 

@@ -451,6 +451,15 @@ a.variant__link:hover .step__go{color:var(--blue)}
   .tools{grid-template-columns:1fr}
   .nav{gap:14px;font-size:13px}
 }
+/* The brand and the five nav links need 483px on one line, gutters included,
+   so below 500px the nav takes a line of its own under the brand. */
+@media (max-width:499px){
+  .masthead__inner{flex-wrap:wrap;row-gap:12px}
+  .nav{flex:1 0 100%;justify-content:space-between;gap:0}
+}
+@media (max-width:359px){
+  .nav{font-size:12px}
+}
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
 </style>
 </head>

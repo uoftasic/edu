@@ -8,7 +8,7 @@
       "track": "Core",
       "status": "live",
       "prereqs": [],
-      "summary": "Learn how to set up IC tools and workspace on your device."
+      "summary": "Set up the shared Docker workspace and SKY130 toolchain every later course builds on."
     },
     {
       "id": "ad101",
@@ -32,7 +32,7 @@
       "track": "Analog",
       "status": "live",
       "prereqs": ["ad102"],
-      "summary": "Simulate diodes and MOSFETs with the SKY130 device models, and finish with a CMOS inverter that you draw in XSchem and size yourself."
+      "summary": "The diode and MOSFET in XSchem: regions of operation and key device parameters."
     },
     {
       "id": "ad104",
@@ -40,7 +40,7 @@
       "track": "Analog",
       "status": "live",
       "prereqs": ["ad103"],
-      "summary": "Draw a CMOS inverter as a chip layout in Magic and get it through DRC and LVS, then place and route four standard cells by hand."
+      "summary": "Full-custom layout: stick diagrams, DRC/LVS-clean cells, PEX, and manual P&R."
     },
     {
       "id": "ad201",
@@ -64,7 +64,7 @@
       "track": "Digital",
       "status": "live",
       "prereqs": ["ic101"],
-      "summary": "Build logic circuits in browser simulators, from a single NAND gate up to a full adder."
+      "summary": "Logic from first principles and lowering to gates."
     },
     {
       "id": "dd102",
@@ -80,7 +80,7 @@
       "track": "Digital",
       "status": "live",
       "prereqs": ["dd102"],
-      "summary": "Run the same SystemVerilog through an FPGA flow and an ASIC flow, and take an elevator controller from its state table to a chip layout that passes DRC and LVS."
+      "summary": "SystemVerilog in depth and the open-source RTL-to-GDSII flow."
     },
     {
       "id": "dd104",

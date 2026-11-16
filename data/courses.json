@@ -99,7 +99,7 @@
       "group": "dd105",
       "variant": "A",
       "label": "SystemVerilog and UVM, on Verilator",
-      "summary": "Build a UVM testbench for a packet router and use it to find the bugs planted in its design.",
+      "summary": "Build a UVM testbench for a small packet router until it catches all fifteen bugs planted in the design.",
       "pick": "Take this version if you want to write the testbench in SystemVerilog, the same language as your RTL."
     },
     {

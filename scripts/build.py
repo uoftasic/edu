@@ -47,8 +47,10 @@ TRACKS = [
 # either track, so they get a ladder of their own below the two tracks.
 CORE = ("Core", "core", "For both tracks",
         "Take IC102 before your first push to one of the team's Tiny Tapeout "
-        "projects. IC103 is for anyone who will bring up or demonstrate a team "
-        "chip.")
+        "projects. It covers the work around the design: making the repository "
+        "from Tiny Tapeout's template, reading failed runs, reviewing pull "
+        "requests and finding the commit that broke something. IC103 is for "
+        "anyone who will bring up or demonstrate a team chip.")
 
 
 def url(cid):
@@ -426,6 +428,7 @@ a.step__link:hover .step__go{color:var(--blue)}
    gate's yellow is too light for text. */
 .track--core{margin:64px 0 0}
 .track--core .track__head{color:var(--blue)}
+.track--core .track__blurb{max-width:66ch}
 .track--core .ladder__level::before{background:#b4c0d4}
 .track--core .ladder__level--fork > .ladder__row{border-left-color:#b4c0d4}
 .track--core .ladder__level--fork .step::before{background:#b4c0d4}

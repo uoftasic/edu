@@ -11,6 +11,38 @@
       "summary": "Install Docker and set up the shared workbench: a Linux desktop that runs in a browser tab on your laptop, with the team's chip design tools and the SKY130 PDK. Every other course here requires it."
     },
     {
+      "id": "ic102-a",
+      "title": "IC102-A — Working in Tiny Tapeout Repos",
+      "track": "Core",
+      "status": "live",
+      "prereqs": ["ic101"],
+      "group": "ic102",
+      "variant": "A",
+      "label": "Analog, in Magic",
+      "summary": "Start a project from Tiny Tapeout's template, put the AD104 inverter in its tile, and get its layout through DRC, LVS and precheck.",
+      "pick": "Take this version for an ASIC Zoo cell, an analog block in CrossWalk or any other project where you draw the layout yourself and commit the GDS."
+    },
+    {
+      "id": "ic102-d",
+      "title": "IC102-D — Working in Tiny Tapeout Repos",
+      "track": "Core",
+      "status": "live",
+      "prereqs": ["ic101"],
+      "group": "ic102",
+      "variant": "D",
+      "label": "Digital, in Verilog",
+      "summary": "Start a project from Tiny Tapeout's template, replace its adder with an 8-bit counter and a test that catches a planted bug, and keep every workflow green.",
+      "pick": "Take this version for Sentry, HART-1 or any other project whose layout Tiny Tapeout's workflow builds from your Verilog."
+    },
+    {
+      "id": "ic103",
+      "title": "IC103 — PCB Design with KiCad",
+      "track": "Core",
+      "status": "live",
+      "prereqs": ["ic101", "ic102"],
+      "summary": "Draw a footprint in KiCad from a package drawing, lay out a Pmod for one project's pins, and take a board for a team chip as far as an orderable design."
+    },
+    {
       "id": "ad101",
       "title": "AD101 — Signals",
       "track": "Analog",

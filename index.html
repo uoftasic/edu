@@ -134,6 +134,15 @@ a.step__link:hover .step__go{color:var(--blue)}
   color:var(--ink-3)}
 .track--analog .ladder__note{border-left-color:#c9b4cf}
 .track--digital .ladder__note{border-left-color:#a8cddb}
+
+/* The Core courses after the gate, under both tracks. Brand blue, since the
+   gate's yellow is too light for text. */
+.track--core{margin:64px 0 0}
+.track--core .track__head{color:var(--blue)}
+.track--core .ladder__level::before{background:#b4c0d4}
+.track--core .ladder__level--fork > .ladder__row{border-left-color:#b4c0d4}
+.track--core .ladder__level--fork .step::before{background:#b4c0d4}
+.track--core .ladder__note{border-left-color:#b4c0d4}
 .step--variants{border:1px solid var(--rule);border-radius:2px;background:var(--paper);
   container-type:inline-size}
 .variants__head{margin:0;display:flex;align-items:baseline;gap:14px;padding:15px 17px 13px;
@@ -235,7 +244,7 @@ a.variant__link:hover .step__go{color:var(--blue)}
     <h1>Learn to design a chip.</h1>
     <p class="hero__lede">The courses here are self-paced, and they teach the open-source tools
       the team uses for its own tapeouts. You don't need any background in chip design to
-      start. <strong>10 courses are open now.</strong></p>
+      start. <strong>12 courses are open now.</strong></p>
   </section>
 
   <section class="gate" aria-labelledby="gate-h">
@@ -305,12 +314,29 @@ a.variant__link:hover .step__go{color:var(--blue)}
   </section>
   </div>
 
+  <section class="track track--core" aria-labelledby="track-core">
+    <header class="track__head">
+      <h2 class="track__name" id="track-core">For both tracks</h2>
+      <p class="track__blurb">Take IC102 before your first push to one of the team&#x27;s Tiny Tapeout projects. IC103 is for anyone who will bring up or demonstrate a team chip.</p>
+      <p class="track__count"><span class="track__n">2</span> of 2 open</p>
+    </header>
+    <ol class="ladder">
+      <li class="ladder__level ladder__level--variants">
+        <p class="ladder__note">2 versions after IC101: take one</p>
+        <ol class="ladder__row"><li class="step step--core step--variants"><p class="variants__head"><span class="step__code">IC102</span><span class="step__name">Working in Tiny Tapeout Repos</span></p><ol class="variants"><li class="variant"><a class="variant__link" href="https://uoftasic.com/ic102-a/"><span class="step__code">IC102-A</span><span class="variant__label">Analog, in Magic</span><span class="variant__summary">Start a project from Tiny Tapeout&#x27;s template, put the AD104 inverter in its tile, and get its layout through DRC, LVS and precheck.</span><span class="variant__pick">Take this version for an ASIC Zoo cell, an analog block in CrossWalk or any other project where you draw the layout yourself and commit the GDS.</span><span class="step__go" aria-hidden="true">&rarr;</span></a></li><li class="variant"><a class="variant__link" href="https://uoftasic.com/ic102-d/"><span class="step__code">IC102-D</span><span class="variant__label">Digital, in Verilog</span><span class="variant__summary">Start a project from Tiny Tapeout&#x27;s template, replace its adder with an 8-bit counter and a test that catches a planted bug, and keep every workflow green.</span><span class="variant__pick">Take this version for Sentry, HART-1 or any other project whose layout Tiny Tapeout&#x27;s workflow builds from your Verilog.</span><span class="step__go" aria-hidden="true">&rarr;</span></a></li></ol></li></ol>
+      </li>
+      <li class="ladder__level">
+        <ol class="ladder__row"><li class="step step--core"><a class="step__link" href="https://uoftasic.com/ic103/"><span class="step__code">IC103</span><span class="step__name">PCB Design with KiCad</span><span class="step__summary">Draw a footprint in KiCad from a package drawing, lay out a Pmod for one project&#x27;s pins, and take a board for a team chip as far as an orderable design.</span><span class="step__go" aria-hidden="true">&rarr;</span></a></li></ol>
+      </li>
+    </ol>
+  </section>
+
   <section class="tools">
     <div>
       <h2>The shared workbench</h2>
       <p>Most of the courses run in the workbench you set up in IC101, a container whose
         tools include XSchem, ngspice, Magic, KLayout, Yosys and LibreLane. DD101 runs in your
-        browser instead.</p>
+        browser instead, and IC103 uses KiCad on your own computer.</p>
     </div>
     <div class="tools__links">
       <a class="btn" href="https://github.com/uoftasic/workspace">Workspace repo</a>

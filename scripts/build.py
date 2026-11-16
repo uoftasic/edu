@@ -40,16 +40,16 @@ TRACKS = [
      "yourself."),
     ("Digital", "digital",
      "Write logic in SystemVerilog, build it for an FPGA and as a chip layout, "
-     "and test it."),
+     "and verify it with cocotb and UVM."),
 ]
 
 # The Core courses after the gate (IC102, IC103) need IC101 and nothing from
 # either track, so they get a ladder of their own below the two tracks.
 CORE = ("Core", "core", "For both tracks",
         "Take IC102 before your first push to one of the team's Tiny Tapeout "
-        "projects. It covers the work around the design: making the repository "
-        "from Tiny Tapeout's template, reading failed runs, reviewing pull "
-        "requests and finding the commit that broke something. IC103 is for "
+        "projects. It teaches the work around a design: starting a repository "
+        "from a template, reading failed runs, reviewing pull requests and "
+        "finding the commit that broke something. IC103 is for "
         "anyone who will bring up or demonstrate a team chip.")
 
 

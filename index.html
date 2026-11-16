@@ -274,10 +274,10 @@ a.variant__link:hover .step__go{color:var(--blue)}
         <ol class="ladder__row"><li class="step step--analog"><a class="step__link" href="https://uoftasic.com/ad102/"><span class="step__code">AD102</span><span class="step__name">Linear Circuits &amp; Fabrication</span><span class="step__summary">Find out how resistors and capacitors are built on a SKY130 chip, and size your own to hit target values inside an area budget.</span><span class="step__go" aria-hidden="true">&rarr;</span></a></li></ol>
       </li>
       <li class="ladder__level">
-        <ol class="ladder__row"><li class="step step--analog"><a class="step__link" href="https://uoftasic.com/ad103/"><span class="step__code">AD103</span><span class="step__name">Nonlinear Circuits</span><span class="step__summary">Simulate a SKY130 diode and MOSFET in XSchem, find the MOSFET&#x27;s regions of operation, and extract key parameters of each, such as the threshold voltage.</span><span class="step__go" aria-hidden="true">&rarr;</span></a></li></ol>
+        <ol class="ladder__row"><li class="step step--analog"><a class="step__link" href="https://uoftasic.com/ad103/"><span class="step__code">AD103</span><span class="step__name">Nonlinear Circuits</span><span class="step__summary">Sweep a SKY130 diode and MOSFET in XSchem, extract the diode&#x27;s ideality factor and series resistance, and find the MOSFET&#x27;s threshold voltage and its four regions of operation.</span><span class="step__go" aria-hidden="true">&rarr;</span></a></li></ol>
       </li>
       <li class="ladder__level">
-        <ol class="ladder__row"><li class="step step--analog"><a class="step__link" href="https://uoftasic.com/ad104/"><span class="step__code">AD104</span><span class="step__name">Layout</span><span class="step__summary">Plan cells as stick diagrams, draw them in Magic until they pass DRC and LVS, extract their parasitics, and place and route four standard cells by hand.</span><span class="step__go" aria-hidden="true">&rarr;</span></a></li></ol>
+        <ol class="ladder__row"><li class="step step--analog"><a class="step__link" href="https://uoftasic.com/ad104/"><span class="step__code">AD104</span><span class="step__name">Layout</span><span class="step__summary">Draw an inverter in Magic from its stick diagram until it passes DRC and LVS, measure what its parasitics cost in delay, then place and route four standard cells by hand.</span><span class="step__go" aria-hidden="true">&rarr;</span></a></li></ol>
       </li>
       <li class="ladder__level">
         <ol class="ladder__row"><li class="step step--analog step--planned"><div class="step__link"><span class="step__code">AD201</span><span class="step__name">Analog Signal Processing</span><span class="step__summary">Filters, amplifiers and the op amp.</span><span class="step__tag">planned</span></div></li></ol>
@@ -290,18 +290,18 @@ a.variant__link:hover .step__go{color:var(--blue)}
   <section class="track track--digital" aria-labelledby="track-digital">
     <header class="track__head">
       <h2 class="track__name" id="track-digital">Digital</h2>
-      <p class="track__blurb">Write logic in SystemVerilog, build it for an FPGA and as a chip layout, and test it.</p>
+      <p class="track__blurb">Write logic in SystemVerilog, build it for an FPGA and as a chip layout, and verify it with cocotb and UVM.</p>
       <p class="track__count"><span class="track__n">5</span> of 7 open</p>
     </header>
     <ol class="ladder">
       <li class="ladder__level">
-        <ol class="ladder__row"><li class="step step--digital"><a class="step__link" href="https://uoftasic.com/dd101/"><span class="step__code">DD101</span><span class="step__name">Intro to Digital Logic</span><span class="step__summary">Build a NAND gate from two relays and every other gate from NAND, then turn truth tables into gate circuits and build a full adder.</span><span class="step__go" aria-hidden="true">&rarr;</span></a></li></ol>
+        <ol class="ladder__row"><li class="step step--digital"><a class="step__link" href="https://uoftasic.com/dd101/"><span class="step__code">DD101</span><span class="step__name">Intro to Digital Logic</span><span class="step__summary">Make a NAND gate from two relays and every other gate from NANDs, turn truth tables into circuits, and build a full adder out of two half adders.</span><span class="step__go" aria-hidden="true">&rarr;</span></a></li></ol>
       </li>
       <li class="ladder__level">
         <ol class="ladder__row"><li class="step step--digital"><a class="step__link" href="https://uoftasic.com/dd102/"><span class="step__code">DD102</span><span class="step__name">Digital Logic &amp; FPGAs</span><span class="step__summary">Type the full adder you drew in DD101 into SystemVerilog and test it, then chain four copies into a 4-bit adder and turn that into an FPGA bitstream.</span><span class="step__go" aria-hidden="true">&rarr;</span></a></li></ol>
       </li>
       <li class="ladder__level">
-        <ol class="ladder__row"><li class="step step--digital"><a class="step__link" href="https://uoftasic.com/dd103/"><span class="step__code">DD103</span><span class="step__name">RTL on FPGAs &amp; ASICs</span><span class="step__summary">Write more SystemVerilog, up to a 4-floor elevator controller designed from its state table, and take it through the open-source RTL-to-GDSII flow to a layout that passes DRC and LVS.</span><span class="step__go" aria-hidden="true">&rarr;</span></a></li></ol>
+        <ol class="ladder__row"><li class="step step--digital"><a class="step__link" href="https://uoftasic.com/dd103/"><span class="step__code">DD103</span><span class="step__name">RTL on FPGAs &amp; ASICs</span><span class="step__summary">Synthesize your DD102 adder for an FPGA and for SKY130 standard cells, then finish a four-floor elevator controller from its state table and take it through the open-source RTL-to-GDSII flow.</span><span class="step__go" aria-hidden="true">&rarr;</span></a></li></ol>
       </li>
       <li class="ladder__level ladder__level--fork">
         <p class="ladder__fork">3 courses after DD103: take them in any order</p>
@@ -309,7 +309,7 @@ a.variant__link:hover .step__go{color:var(--blue)}
       </li>
       <li class="ladder__level ladder__level--variants">
         <p class="ladder__note">2 versions after DD104: take one</p>
-        <ol class="ladder__row"><li class="step step--digital step--variants"><p class="variants__head"><span class="step__code">DD105</span><span class="step__name">Testbenches with UVM</span></p><ol class="variants"><li class="variant"><a class="variant__link" href="https://uoftasic.com/dd105-a/"><span class="step__code">DD105-A</span><span class="variant__label">SystemVerilog and UVM, on Verilator</span><span class="variant__summary">Build a UVM testbench for a small packet router until it catches all fifteen bugs planted in the design.</span><span class="variant__pick">Take this version if you want to write the testbench in SystemVerilog, the same language as your RTL.</span><span class="step__go" aria-hidden="true">&rarr;</span></a></li><li class="variant variant--planned"><div class="variant__link"><span class="step__code">DD105-B</span><span class="variant__label">Python and pyuvm, on cocotb</span><span class="variant__summary">The same course as DD105-A.</span><span class="variant__pick">Take this version if you want to keep writing tests in Python, as you did with cocotb in DD104.</span><span class="step__tag">planned</span></div></li></ol></li></ol>
+        <ol class="ladder__row"><li class="step step--digital step--variants"><p class="variants__head"><span class="step__code">DD105</span><span class="step__name">Testbenches with UVM</span></p><ol class="variants"><li class="variant"><a class="variant__link" href="https://uoftasic.com/dd105-a/"><span class="step__code">DD105-A</span><span class="variant__label">SystemVerilog and UVM, on Verilator</span><span class="variant__summary">Build a testbench for a small packet router and use it to find the router&#x27;s fifteen one-line bugs.</span><span class="variant__pick">Take this version if you want to write the testbench in SystemVerilog, the same language as your RTL.</span><span class="step__go" aria-hidden="true">&rarr;</span></a></li><li class="variant variant--planned"><div class="variant__link"><span class="step__code">DD105-B</span><span class="variant__label">Python and pyuvm, on cocotb</span><span class="variant__summary">Build a testbench for the same packet router as DD105-A.</span><span class="variant__pick">Take this version if you want to keep writing tests in Python, as you did with cocotb in DD104.</span><span class="step__tag">planned</span></div></li></ol></li></ol>
       </li>
     </ol>
   </section>
@@ -318,7 +318,7 @@ a.variant__link:hover .step__go{color:var(--blue)}
   <section class="track track--core" aria-labelledby="track-core">
     <header class="track__head">
       <h2 class="track__name" id="track-core">For both tracks</h2>
-      <p class="track__blurb">Take IC102 before your first push to one of the team&#x27;s Tiny Tapeout projects. It covers the work around the design: making the repository from Tiny Tapeout&#x27;s template, reading failed runs, reviewing pull requests and finding the commit that broke something. IC103 is for anyone who will bring up or demonstrate a team chip.</p>
+      <p class="track__blurb">Take IC102 before your first push to one of the team&#x27;s Tiny Tapeout projects. It teaches the work around a design: starting a repository from a template, reading failed runs, reviewing pull requests and finding the commit that broke something. IC103 is for anyone who will bring up or demonstrate a team chip.</p>
       <p class="track__count"><span class="track__n">2</span> of 2 open</p>
     </header>
     <ol class="ladder">

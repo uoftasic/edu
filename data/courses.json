@@ -64,7 +64,7 @@
       "track": "Analog",
       "status": "live",
       "prereqs": ["ad102"],
-      "summary": "Simulate a SKY130 diode and MOSFET in XSchem, find the MOSFET's regions of operation, and extract key parameters of each, such as the threshold voltage."
+      "summary": "Sweep a SKY130 diode and MOSFET in XSchem, extract the diode's ideality factor and series resistance, and find the MOSFET's threshold voltage and its four regions of operation."
     },
     {
       "id": "ad104",
@@ -72,7 +72,7 @@
       "track": "Analog",
       "status": "live",
       "prereqs": ["ad103"],
-      "summary": "Plan cells as stick diagrams, draw them in Magic until they pass DRC and LVS, extract their parasitics, and place and route four standard cells by hand."
+      "summary": "Draw an inverter in Magic from its stick diagram until it passes DRC and LVS, measure what its parasitics cost in delay, then place and route four standard cells by hand."
     },
     {
       "id": "ad201",
@@ -96,7 +96,7 @@
       "track": "Digital",
       "status": "live",
       "prereqs": ["ic101"],
-      "summary": "Build a NAND gate from two relays and every other gate from NAND, then turn truth tables into gate circuits and build a full adder."
+      "summary": "Make a NAND gate from two relays and every other gate from NANDs, turn truth tables into circuits, and build a full adder out of two half adders."
     },
     {
       "id": "dd102",
@@ -112,7 +112,7 @@
       "track": "Digital",
       "status": "live",
       "prereqs": ["dd102"],
-      "summary": "Write more SystemVerilog, up to a 4-floor elevator controller designed from its state table, and take it through the open-source RTL-to-GDSII flow to a layout that passes DRC and LVS."
+      "summary": "Synthesize your DD102 adder for an FPGA and for SKY130 standard cells, then finish a four-floor elevator controller from its state table and take it through the open-source RTL-to-GDSII flow."
     },
     {
       "id": "dd104",
@@ -131,7 +131,7 @@
       "group": "dd105",
       "variant": "A",
       "label": "SystemVerilog and UVM, on Verilator",
-      "summary": "Build a UVM testbench for a small packet router until it catches all fifteen bugs planted in the design.",
+      "summary": "Build a testbench for a small packet router and use it to find the router's fifteen one-line bugs.",
       "pick": "Take this version if you want to write the testbench in SystemVerilog, the same language as your RTL."
     },
     {
@@ -143,7 +143,7 @@
       "group": "dd105",
       "variant": "B",
       "label": "Python and pyuvm, on cocotb",
-      "summary": "The same course as DD105-A.",
+      "summary": "Build a testbench for the same packet router as DD105-A.",
       "pick": "Take this version if you want to keep writing tests in Python, as you did with cocotb in DD104."
     },
     {

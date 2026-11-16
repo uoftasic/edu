@@ -559,7 +559,7 @@ a.variant__link:hover .step__go{color:var(--blue)}
       <h2>The shared workbench</h2>
       <p>The workbench has XSchem, ngspice, Magic, KLayout, Yosys and LibreLane, among other
         tools. Every open course uses it except DD101, which runs in your browser, and IC103,
-        which uses KiCad on your own computer.</p>
+        which needs KiCad on your own computer.</p>
     </div>
     <div class="tools__links">
       <a class="btn" href="{workspace}">Workspace repo</a>

@@ -35,10 +35,10 @@
       "pick": "This is the version for Sentry, HART-1 and any other project written in Verilog, where Tiny Tapeout's workflow builds the layout."
     },
     {
-      "id": "ic103",
-      "title": "IC103 — PCB Design with KiCad",
+      "id": "pcb101",
+      "title": "PCB101 — PCB Design with KiCad",
       "track": "Core",
-      "status": "live",
+      "status": "planned",
       "prereqs": ["ic101", "ic102"],
       "summary": "Work out a QFN footprint from its package drawing, lay out a Pmod for one project's pins, and finish with a board design that's ready to order."
     },
@@ -138,12 +138,12 @@
       "id": "dd105-b",
       "title": "DD105-B — Testbenches with UVM",
       "track": "Digital",
-      "status": "planned",
+      "status": "live",
       "prereqs": ["dd104"],
       "group": "dd105",
       "variant": "B",
       "label": "Python and pyuvm, on cocotb",
-      "summary": "Build a testbench for the same packet router as DD105-A.",
+      "summary": "Write the monitor and scoreboard of a plain cocotb testbench for the same router, then finish porting that testbench to pyuvm.",
       "pick": "Take this version if you want to keep writing tests in Python, as you did with cocotb in DD104."
     },
     {

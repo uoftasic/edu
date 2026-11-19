@@ -43,13 +43,13 @@ TRACKS = [
      "and verify it with cocotb and UVM."),
 ]
 
-# The Core courses after the gate (IC102, IC103) need IC101 and nothing from
+# The Core courses after the gate (IC102, PCB101) need IC101 and nothing from
 # either track, so they get a ladder of their own below the two tracks.
 CORE = ("Core", "core", "For both tracks",
         "Take IC102 before your first push to one of the team's Tiny Tapeout "
         "projects. It teaches the work around a design: starting a repository "
         "from a template, reading failed runs, reviewing pull requests and "
-        "finding the commit that broke something. IC103 is for "
+        "finding the commit that broke something. PCB101 is for "
         "anyone who will bring up or demonstrate a team chip.")
 
 
@@ -557,7 +557,7 @@ a.variant__link:hover .step__go{color:var(--blue)}
     <div>
       <h2>The shared workbench</h2>
       <p>The workbench has XSchem, ngspice, Magic, KLayout, Yosys and LibreLane, among other
-        tools. Every open course uses it except DD101, which runs in your browser, and IC103,
+        tools. Every open course uses it except DD101, which runs in your browser, and PCB101,
         which needs KiCad on your own computer.</p>
     </div>
     <div class="tools__links">

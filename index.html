@@ -244,7 +244,7 @@ a.variant__link:hover .step__go{color:var(--blue)}
     <h1>Learn to design a chip.</h1>
     <p class="hero__lede">You work through these courses at your own pace, on the same
       open-source tools that the team uses for its own tapeouts, and you can start with no
-      background in chip design. <strong>12 courses are open now.</strong></p>
+      background in chip design. <strong>11 courses are open now.</strong></p>
   </section>
 
   <section class="gate" aria-labelledby="gate-h">
@@ -308,7 +308,7 @@ a.variant__link:hover .step__go{color:var(--blue)}
       </li>
       <li class="ladder__level ladder__level--variants">
         <p class="ladder__note">2 versions after DD104: take one</p>
-        <ol class="ladder__row"><li class="step step--digital step--variants"><p class="variants__head"><span class="step__code">DD105</span><span class="step__name">Testbenches with UVM</span></p><ol class="variants"><li class="variant"><a class="variant__link" href="https://uoftasic.com/dd105-a/"><span class="step__code">DD105-A</span><span class="variant__label">SystemVerilog and UVM, on Verilator</span><span class="variant__summary">Build a testbench for a small packet router and use it to find the router&#x27;s fifteen one-line bugs.</span><span class="variant__pick">Take this version if you want to write the testbench in SystemVerilog, the same language as your RTL.</span><span class="step__go" aria-hidden="true">&rarr;</span></a></li><li class="variant variant--planned"><div class="variant__link"><span class="step__code">DD105-B</span><span class="variant__label">Python and pyuvm, on cocotb</span><span class="variant__summary">Build a testbench for the same packet router as DD105-A.</span><span class="variant__pick">Take this version if you want to keep writing tests in Python, as you did with cocotb in DD104.</span><span class="step__tag">planned</span></div></li></ol></li></ol>
+        <ol class="ladder__row"><li class="step step--digital step--variants"><p class="variants__head"><span class="step__code">DD105</span><span class="step__name">Testbenches with UVM</span></p><ol class="variants"><li class="variant"><a class="variant__link" href="https://uoftasic.com/dd105-a/"><span class="step__code">DD105-A</span><span class="variant__label">SystemVerilog and UVM, on Verilator</span><span class="variant__summary">Build a testbench for a small packet router and use it to find the router&#x27;s fifteen one-line bugs.</span><span class="variant__pick">Take this version if you want to write the testbench in SystemVerilog, the same language as your RTL.</span><span class="step__go" aria-hidden="true">&rarr;</span></a></li><li class="variant"><a class="variant__link" href="https://uoftasic.com/dd105-b/"><span class="step__code">DD105-B</span><span class="variant__label">Python and pyuvm, on cocotb</span><span class="variant__summary">Write the monitor and scoreboard of a plain cocotb testbench for the same router, then finish porting that testbench to pyuvm.</span><span class="variant__pick">Take this version if you want to keep writing tests in Python, as you did with cocotb in DD104.</span><span class="step__go" aria-hidden="true">&rarr;</span></a></li></ol></li></ol>
       </li>
     </ol>
   </section>
@@ -317,8 +317,8 @@ a.variant__link:hover .step__go{color:var(--blue)}
   <section class="track track--core" aria-labelledby="track-core">
     <header class="track__head">
       <h2 class="track__name" id="track-core">For both tracks</h2>
-      <p class="track__blurb">Take IC102 before your first push to one of the team&#x27;s Tiny Tapeout projects. It teaches the work around a design: starting a repository from a template, reading failed runs, reviewing pull requests and finding the commit that broke something. IC103 is for anyone who will bring up or demonstrate a team chip.</p>
-      <p class="track__count"><span class="track__n">2</span> of 2 open</p>
+      <p class="track__blurb">Take IC102 before your first push to one of the team&#x27;s Tiny Tapeout projects. It teaches the work around a design: starting a repository from a template, reading failed runs, reviewing pull requests and finding the commit that broke something. PCB101 is for anyone who will bring up or demonstrate a team chip.</p>
+      <p class="track__count"><span class="track__n">1</span> of 2 open</p>
     </header>
     <ol class="ladder">
       <li class="ladder__level ladder__level--variants">
@@ -326,7 +326,7 @@ a.variant__link:hover .step__go{color:var(--blue)}
         <ol class="ladder__row"><li class="step step--core step--variants"><p class="variants__head"><span class="step__code">IC102</span><span class="step__name">Working in Tiny Tapeout Repos</span></p><ol class="variants"><li class="variant"><a class="variant__link" href="https://uoftasic.com/ic102-a/"><span class="step__code">IC102-A</span><span class="variant__label">Analog, in Magic</span><span class="variant__summary">Place the AD104 inverter in your project&#x27;s tile and get its layout through DRC, LVS and precheck.</span><span class="variant__pick">This is the version for ASIC Zoo cells, CrossWalk&#x27;s analog blocks and any other project where you draw the layout by hand and commit the GDS.</span><span class="step__go" aria-hidden="true">&rarr;</span></a></li><li class="variant"><a class="variant__link" href="https://uoftasic.com/ic102-d/"><span class="step__code">IC102-D</span><span class="variant__label">Digital, in Verilog</span><span class="variant__summary">Replace the adder in the Verilog template with an 8-bit counter, write a test that catches a planted bug, and keep every workflow green.</span><span class="variant__pick">This is the version for Sentry, HART-1 and any other project written in Verilog, where Tiny Tapeout&#x27;s workflow builds the layout.</span><span class="step__go" aria-hidden="true">&rarr;</span></a></li></ol></li></ol>
       </li>
       <li class="ladder__level">
-        <ol class="ladder__row"><li class="step step--core"><a class="step__link" href="https://uoftasic.com/ic103/"><span class="step__code">IC103</span><span class="step__name">PCB Design with KiCad</span><span class="step__summary">Work out a QFN footprint from its package drawing, lay out a Pmod for one project&#x27;s pins, and finish with a board design that&#x27;s ready to order.</span><span class="step__go" aria-hidden="true">&rarr;</span></a></li></ol>
+        <ol class="ladder__row"><li class="step step--core step--planned"><div class="step__link"><span class="step__code">PCB101</span><span class="step__name">PCB Design with KiCad</span><span class="step__summary">Work out a QFN footprint from its package drawing, lay out a Pmod for one project&#x27;s pins, and finish with a board design that&#x27;s ready to order.</span><span class="step__tag">planned</span></div></li></ol>
       </li>
     </ol>
   </section>
@@ -335,7 +335,7 @@ a.variant__link:hover .step__go{color:var(--blue)}
     <div>
       <h2>The shared workbench</h2>
       <p>The workbench has XSchem, ngspice, Magic, KLayout, Yosys and LibreLane, among other
-        tools. Every open course uses it except DD101, which runs in your browser, and IC103,
+        tools. Every open course uses it except DD101, which runs in your browser, and PCB101,
         which needs KiCad on your own computer.</p>
     </div>
     <div class="tools__links">

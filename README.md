@@ -19,7 +19,7 @@ python3 -m http.server -d . 8765
 |-------|--------|
 | `id` | Course id. A `live` course links to `https://uoftasic.com/<id>/`. |
 | `title` | Course code, an em dash, then the name (`AD101 — Signals`). The hub shows the part after the dash as the name. |
-| `track` | `Core`, `Analog` or `Digital`. IC101 is the Core course the hub shows at the top under "Start here". The other Core courses, IC102 and IC103, get a ladder of their own, headed "For both tracks", below the two tracks. The track blurbs, and that ladder's heading and blurb, are in `scripts/build.py`. |
+| `track` | `Core`, `Analog` or `Digital`. IC101 is the Core course the hub shows at the top under "Start here". The other Core courses, IC102 and PCB101, get a ladder of their own, headed "For both tracks", below the two tracks. The track blurbs, and that ladder's heading and blurb, are in `scripts/build.py`. |
 | `status` | `live` (linked) or `planned` (shown on the roadmap only) |
 | `prereqs` | Ids of the courses this one requires. The hub places each course one level below its prerequisites. A `group` id, such as `dd105`, means either version of that course, and `build.py` stops with an error on an id that is neither a course nor a group. |
 | `summary` | What a student does in the course, in a sentence or two |

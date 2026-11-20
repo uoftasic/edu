@@ -38,7 +38,7 @@
       "id": "pcb101",
       "title": "PCB101 — PCB Design with KiCad",
       "track": "Core",
-      "status": "planned",
+      "status": "live",
       "prereqs": ["ic101", "ic102"],
       "summary": "Work out a QFN footprint from its package drawing, lay out a Pmod for one project's pins, and finish with a board design that's ready to order."
     },

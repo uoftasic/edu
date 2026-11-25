@@ -29,7 +29,7 @@ Some courses come in versions that teach the same thing with different tools, an
 | Field | Notes |
 |-------|--------|
 | `group` | The id the versions share (`dd105`). The hub shows them as one step in the ladder, split between the versions, with the group id as its code and the name from the first version's `title`. It counts them as one course in its totals of open courses. The versions must have the same `track` and `prereqs`, and `build.py` stops with an error if they don't. |
-| `variant` | The version's letter (`A`, `B`; IC102 uses `A` for analog and `D` for digital). The hub shows the versions in letter order. |
+| `variant` | The version's letter (`A`, `B`; IC102 uses `A` for analog and `D` for digital, and AD104 uses `K` for KLayout and `M` for Magic). The hub shows the versions in letter order. |
 | `label` | What the version uses, such as `SystemVerilog and UVM, on Verilator`. |
 | `pick` | One sentence on who should take this version. |
 

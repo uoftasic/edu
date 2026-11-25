@@ -67,12 +67,28 @@
       "summary": "Sweep a SKY130 diode and MOSFET in XSchem, extract the diode's ideality factor and series resistance, and find the MOSFET's threshold voltage and its four regions of operation."
     },
     {
-      "id": "ad104",
-      "title": "AD104 — Layout",
+      "id": "ad104-k",
+      "title": "AD104-K — Layout",
+      "track": "Analog",
+      "status": "planned",
+      "prereqs": ["ad103"],
+      "group": "ad104",
+      "variant": "K",
+      "label": "KLayout, with Magic's device generators",
+      "summary": "Draw an inverter in KLayout until it passes DRC and LVS, build a second one from generated transistors, measure what its parasitics cost in delay, then place and route four standard cells by hand.",
+      "pick": "The course is moving to KLayout, and this is the version that will stay. It isn't open yet, so take AD104-M now."
+    },
+    {
+      "id": "ad104-m",
+      "title": "AD104-M — Layout",
       "track": "Analog",
       "status": "live",
       "prereqs": ["ad103"],
-      "summary": "Draw an inverter in Magic from its stick diagram until it passes DRC and LVS, measure what its parasitics cost in delay, then place and route four standard cells by hand."
+      "group": "ad104",
+      "variant": "M",
+      "label": "Magic",
+      "summary": "Draw an inverter in Magic until it passes DRC and LVS, build a second one from Magic's device generator, measure what its parasitics cost in delay, then place and route four standard cells by hand.",
+      "pick": "Take this version: it's the one that's open now."
     },
     {
       "id": "ad201",
